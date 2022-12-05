@@ -7,10 +7,15 @@ export default class CompareGraph extends React.Component {
     this.state = {
       series: [
         {
-          data: [44, 55, 41, 64, 22, 43, 21],
+          name: "Current",
+
+          data: props.graphics_value_current.data,
         },
+
         {
-          data: [53, 32, 33, 52, 13, 44, 32],
+          name: "Previous",
+
+          data: props.graphics_value_previous.data,
         },
       ],
       options: {
@@ -48,19 +53,30 @@ export default class CompareGraph extends React.Component {
           labels: {
             show: true,
             style: {
-              colors: ["#E4E6E9", "#E4E6E9","#E4E6E9"],
+              colors: ["#E4E6E9", "#E4E6E9", "#E4E6E9"],
             },
           },
         },
         yaxis: {
-            labels: {
-              show: true,
-              style: {
-                colors: ["#E4E6E9", "#E4E6E9","#E4E6E9", "#E4E6E9","#E4E6E9", "#E4E6E9","#E4E6E9", "#E4E6E9","#E4E6E9", "#E4E6E9"],
-              },
+          labels: {
+            show: true,
+            style: {
+              colors: [
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+              ],
             },
           },
-        
+        },
+
         legend: {
           offsetX: 40,
           labels: {

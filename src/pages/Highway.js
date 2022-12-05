@@ -237,7 +237,7 @@ const Highway = () => {
                     sx={{ fontSize: 14, fontWeight: 600,color:'#e4e6e9' }}
                     gutterBottom
                   >
-                    2.996%
+                    2.996
                   </Typography>
                 </Stack>
               </CardContent>
@@ -269,7 +269,7 @@ const Highway = () => {
                     sx={{ fontSize: 14, fontWeight: 600,color:'#e4e6e9' }}
                     gutterBottom
                   >
-                    0%
+                    0
                   </Typography>
                 </Stack>
               </CardContent>
@@ -297,7 +297,7 @@ const Highway = () => {
                     color="#E4E6E9"
                     gutterBottom
                   >
-                    0.998%
+                    0.998
                   </Typography>
                   <Box>
                     {/* <ProgressCard value="0.998" />
@@ -333,7 +333,7 @@ const Highway = () => {
                     color="#E4E6E9"
                     gutterBottom
                   >
-                    2.99%
+                    2.99
                   </Typography>
                   
                 </Stack>
@@ -366,7 +366,7 @@ const Highway = () => {
                     color="#E4E6E9"
                     gutterBottom
                   >
-                    2%
+                    2
                   </Typography>
                 </Stack>
               </CardContent>

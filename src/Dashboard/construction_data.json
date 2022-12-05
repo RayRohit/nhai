@@ -1,0 +1,34 @@
+{
+      "card_value_previous": {
+            "Clearing_and_Excavation": 379,
+            "Mounting": 659,
+            "Fine Grading": 775,
+            "Asphalt_Base": 464,
+            "Asphalt Pavement": 0
+      },
+      "card_value_current": {
+            "Clearing_and_Excavation": 0,
+            "Mounting": 1004,
+            "Fine Grading": 132,
+            "Asphalt_Base": 538,
+            "Asphalt Pavement": 603
+      },
+      "graphics_value_previous": {
+            "data": [
+                  0,
+                  464,
+                  1239,
+                  1898,
+                  2277
+            ]
+      },
+      "graphics_value_current": {
+            "data": [
+                  603,
+                  1141,
+                  1273,
+                  2277,
+                  2277
+            ]
+      }
+}

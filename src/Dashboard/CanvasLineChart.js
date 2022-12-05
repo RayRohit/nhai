@@ -158,6 +158,70 @@ function CanvasLineCharts(props) {
         },
       ],
     };
+  }else if(props.text === "User Services"){
+    option = {
+      height: 140,
+      zoomEnabled: true,
+      zoomType: "xy",
+      backgroundColor: "#273143",
+      theme: "dark",
+      animationEnabled: true,
+      axisY: {
+        title: "Rating",
+        titleFontColor: "#fff",
+        labelFontColor: "#fff",
+      },
+      axisX: {
+        title: "Seconds",
+        titleFontColor: "#fff",
+        labelFontColor: "#fff",
+      },
+      toolTip: {
+        shared: "true",
+      },
+      legend: {
+        cursor: "pointer",
+        fontColor: "#fff",
+        itemclick: (e) => {
+          if (
+            typeof e.dataSeries.visible === "undefined" ||
+            e.dataSeries.visible
+          ) {
+            e.dataSeries.visible = false;
+          } else {
+            e.dataSeries.visible = true;
+          }
+
+          e.chart.render();
+        },
+      },
+      data: [
+        {
+          type: "spline",
+          visible: true,
+          showInLegend: true,
+          yValueFormatString: "0#.0000",
+          name: "Traffic Barrier",
+          dataPoints: props.TrafficBarrierCoords,
+        },
+        {
+          type: "spline",
+          visible: true,
+          showInLegend: true,
+          yValueFormatString: "0#.0000",
+          name: "Speed Breakers",
+          dataPoints: props.SpeedBreakersCoords,
+        },
+        {
+          type: "spline",
+          visible:true,
+          showInLegend: true,
+          yValueFormatString: "0#.0000",
+          name: "Encroachment Hoardings",
+          dataPoints: props.EncroachmentHoardingsCoords,
+        }
+      ],
+    };
   }
     
   return <CanvasJSChart options={option} />;

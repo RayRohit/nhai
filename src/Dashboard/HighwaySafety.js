@@ -220,7 +220,9 @@ export default function HighwaySafety() {
                 status="HighWay Safety"
                 text="NSV"
                 GaugeValue={
-                  (state.HSMedianPeak + state.HSEarthenShoulderPeak + state.HSSolarBlinkerPeak) /
+                  (state.HSMedianPeak +
+                    state.HSEarthenShoulderPeak +
+                    state.HSSolarBlinkerPeak) /
                   7
                 }
               />
@@ -230,7 +232,9 @@ export default function HighwaySafety() {
                 status="HighWay Safety"
                 text="NSV"
                 GaugeValue={
-                  (state.HSMedianPeak + state.HSEarthenShoulderPeak + state.HSSolarBlinkerPeak) /
+                  (state.HSMedianPeak +
+                    state.HSEarthenShoulderPeak +
+                    state.HSSolarBlinkerPeak) /
                   7
                 }
                 Median={state.HSMedianPeak}
@@ -266,12 +270,14 @@ export default function HighwaySafety() {
             <Grid item lg={9} xl={9}>
               <Gauge
                 status="HighWay Safety"
-                text="FAStag"
+                text="Toll Data"
                 GaugeValue={
-                  (hedata.Card_Value[0].Traffic_Volume +
-                    hedata.Card_Value[0].Operating_Speed +
-                    hedata.Card_Value[0].Delay_Toll_Plaza) /
-                  23.5
+                  (hedata.Card_Value[0].Accident_per_km +
+                    hedata.Card_Value[0].Accident_Severity_Index +
+                    hedata.Card_Value[0].Avg_Ambulance_Response_Time +
+                    hedata.Card_Value[0].Avg_Incident_Response_Time +
+                    hedata.Card_Value[0].Roadway_Clearance_Time) /
+                  16
                 }
               />
             </Grid>
@@ -279,24 +285,46 @@ export default function HighwaySafety() {
               <PieGraph
                 status="HighWay Safety"
                 GaugeValue={
-                  (hedata.Card_Value[0].Traffic_Volume +
-                    hedata.Card_Value[0].Operating_Speed +
-                    hedata.Card_Value[0].Delay_Toll_Plaza) /
-                  23.5
+                  (hedata.Card_Value[0].Accident_per_km +
+                    hedata.Card_Value[0].Accident_Severity_Index +
+                    hedata.Card_Value[0].Avg_Ambulance_Response_Time +
+                    hedata.Card_Value[0].Avg_Incident_Response_Time +
+                    hedata.Card_Value[0].Roadway_Clearance_Time) /
+                  16
                 }
-                text="FAStag"
-                TafficVolume={hedata.Card_Value[0].Traffic_Volume}
-                OperatingSpeed={hedata.Card_Value[0].Operating_Speed}
-                DelayTollPlaza={hedata.Card_Value[0].Delay_Toll_Plaza}
+                text="Toll Data"
+                AccidentPerKM={hedata.Card_Value[0].Accident_per_km}
+                AccidentSeverityIndex={
+                  hedata.Card_Value[0].Accident_Severity_Index
+                }
+                AmbulanceResponseTime={
+                  hedata.Card_Value[0].Avg_Ambulance_Response_Time
+                }
+                IncidentResponseTime={
+                  hedata.Card_Value[0].Avg_Incident_Response_Time
+                }
+                RoadwayClearanceTime={
+                  hedata.Card_Value[0].Roadway_Clearance_Time
+                }
               />
             </Grid>
             <Grid item lg={6} xl={6}>
               <Stacked
                 status="HighWay Safety"
-                text="FAStag"
-                TafficVolume={hedata.Card_Value[0].Traffic_Volume}
-                OperatingSpeed={hedata.Card_Value[0].Operating_Speed}
-                DelayTollPlaza={hedata.Card_Value[0].Delay_Toll_Plaza}
+                text="Toll Data"
+                AccidentPerKM={hedata.Card_Value[0].Accident_per_km}
+                AccidentSeverityIndex={
+                  hedata.Card_Value[0].Accident_Severity_Index
+                }
+                AmbulanceResponseTime={
+                  hedata.Card_Value[0].Avg_Ambulance_Response_Time
+                }
+                IncidentResponseTime={
+                  hedata.Card_Value[0].Avg_Incident_Response_Time
+                }
+                RoadwayClearanceTime={
+                  hedata.Card_Value[0].Roadway_Clearance_Time
+                }
               />
             </Grid>
           </Grid>

@@ -190,7 +190,12 @@ export default function Dashboard() {
           </Box>
         </Grid>
         <Grid item xs={5} md={5} lg={5} sx={{ ml: 2 }}>
-          <LineGraph />
+          <LineGraph
+            text="User Services"
+            SpeedBreakers={SpeedBreakers}
+            TrafficBarriers={TrafficBarriers}
+            EncroachmentHoardings={EncroachmentHoardings}
+          />
         </Grid>
         <Grid item xs={4} md={4} lg={4}>
           <CompleteGraph />

@@ -1,7 +1,12 @@
 import { Box, Paper, Typography } from "@mui/material";
+
 import React from "react";
-import Complete from "../Dashboard/Complete";
+
+// import Complete from "../Dashboard/Complete";
+
 import CompareGraph from "./CompareGraph";
+
+import constdata from "./construction_data.json";
 
 export default function Compare() {
   return (
@@ -9,8 +14,11 @@ export default function Compare() {
       <Paper
         sx={{
           background: "#273143",
+
           p: 2,
+
           height: "520px",
+
           borderRadius: "10px",
         }}
       >
@@ -19,13 +27,15 @@ export default function Compare() {
             variant="h5"
             sx={{ color: "#e4e6e9", fontWeight: "bolder" }}
           >
-           Progress Bar Stack
+            Progress Bar Stack
           </Typography>
+
           <Typography variant="p" sx={{ color: "#969ea9" }}>
-            The graph shows completion of each phase in meters 
+            SThe graph shows completion of each phase in meters
           </Typography>
+
           <Box>
-            <CompareGraph />
+            <CompareGraph {...constdata} />
           </Box>
         </Box>
       </Paper>

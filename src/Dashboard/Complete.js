@@ -43,7 +43,7 @@ export default class Complete extends React.Component {
                 offsetX: 0,
                 style: {
                   fontSize: "1px",
-                  fontWeight: 900,
+                  fontWeight: 900, 
                 },
               },
             },

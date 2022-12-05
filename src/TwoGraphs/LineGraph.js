@@ -447,14 +447,123 @@ export default function LineGraph(props) {
         HSN: false,
         HSEarthenShoulderPeak: EarthenPeak,
         HSMedianPeak: MedianPeak,
-        HSSolarBlinkerPeak:SolarPeak
+        HSSolarBlinkerPeak: SolarPeak,
       });
     }
 
     return {
       EarthenCoords,
       MedianCoords,
-      SolarCoords
+      SolarCoords,
+    };
+  }
+
+  function UserServices() {
+    const SpeedBreakers = props.SpeedBreakers.map((el) => {
+      return { F: "P", V: parseInt(el[3].toFixed(0)) };
+    });
+    const TrafficBarriers = props.TrafficBarriers.map((el) => {
+      return { F: "N", V: parseInt(el[3].toFixed(0)) };
+    });
+    const EncroachmentHoardings = props.EncroachmentHoardings.map((el) => {
+      return { F: "N", V: parseInt(el[3].toFixed(0)) };
+    });
+    var EncroachmentHoardingsRange = EncroachmentHoardings.map(
+      (el) => el.V
+    ).sort((a, b) => a - b);
+    let index = Math.ceil(0.035 * EncroachmentHoardingsRange.length);
+    var EncroachmentHoardingsPeak = 2;
+    var EncroachmentHoardingsCoords = [];
+    for (let i in EncroachmentHoardingsRange) {
+      let coords = {};
+      if (parseInt(i) === index) {
+        EncroachmentHoardingsPeak = EncroachmentHoardingsPeak - 1;
+        coords["x"] = EncroachmentHoardingsRange[i];
+        coords["y"] = EncroachmentHoardingsPeak;
+        EncroachmentHoardingsCoords.push(coords);
+      } else if (parseInt(i) === index + 1) {
+        EncroachmentHoardingsPeak = EncroachmentHoardingsPeak - 1;
+        coords["x"] = EncroachmentHoardingsRange[i];
+        coords["y"] = EncroachmentHoardingsPeak;
+        EncroachmentHoardingsCoords.push(coords);
+      } else {
+        coords["x"] = EncroachmentHoardingsRange[i];
+        coords["y"] = EncroachmentHoardingsPeak;
+        EncroachmentHoardingsCoords.push(coords);
+      }
+    }
+    var TrafficBarrierRange = TrafficBarriers.map((el) => el.V).sort(
+      (a, b) => a - b
+    );
+    var TrafficBarrierCoords = [];
+    var TrafficBarrierPeak = 1;
+    for (
+      let i = 0;
+      i <= TrafficBarrierRange[TrafficBarrierRange.length - 1];
+      i++
+    ) {
+      let coords = {};
+      if (i === TrafficBarrierRange[0]) {
+        coords["x"] = i;
+        TrafficBarrierPeak = TrafficBarrierPeak - 0.5;
+        coords["y"] = parseFloat(TrafficBarrierPeak.toFixed(1));
+        TrafficBarrierCoords.push(coords);
+      } else if (i === TrafficBarrierRange[1]) {
+        coords["x"] = i;
+        TrafficBarrierPeak = TrafficBarrierPeak - 0.5;
+        coords["y"] = parseFloat(TrafficBarrierPeak.toFixed(1));
+        TrafficBarrierCoords.push(coords);
+      } else {
+        coords["x"] = i;
+        coords["y"] = parseFloat(TrafficBarrierPeak.toFixed(1));
+        TrafficBarrierCoords.push(coords);
+      }
+    }
+    var SpeedBreakersRange = SpeedBreakers.map((el) => el.V).sort(
+      (a, b) => a - b
+    );
+    var SpeedBreakersCoords = [];
+    var SpeedBreakersPeak = 1;
+    if (SpeedBreakersRange.length === 0) {
+      SpeedBreakersCoords.push({ x: 0, y: 1 });
+    } else {
+      for (
+        let i = 0;
+        i <= SpeedBreakersRange[SpeedBreakersRange.length - 1];
+        i++
+      ) {
+        let coords = {};
+        if (i === SpeedBreakersRange[0]) {
+          coords["x"] = i;
+          SpeedBreakersPeak = SpeedBreakersPeak - 0.5;
+          coords["y"] = parseFloat(SpeedBreakersPeak.toFixed(1));
+          SpeedBreakersCoords.push(coords);
+        } else if (i === SpeedBreakersRange[1]) {
+          coords["x"] = i;
+          SpeedBreakersPeak = SpeedBreakersPeak - 0.5;
+          coords["y"] = parseFloat(SpeedBreakersPeak.toFixed(1));
+          SpeedBreakersCoords.push(coords);
+        } else {
+          coords["x"] = i;
+          coords["y"] = parseFloat(SpeedBreakersPeak.toFixed(1));
+          SpeedBreakersCoords.push(coords);
+        }
+      }
+    }
+
+    if (state.US)
+      setState({
+        ...state,
+        US: false,
+        USTrafficBarrier: TrafficBarrierPeak,
+        USSpeedBreakers: SpeedBreakersPeak,
+        USIllegalEncroachment:EncroachmentHoardingsPeak
+      });
+
+    return {
+      TrafficBarrierCoords,
+      SpeedBreakersCoords,
+      EncroachmentHoardingsCoords,
     };
   }
 
@@ -482,6 +591,20 @@ export default function LineGraph(props) {
           MedianCoords={MedianCoords}
           EarthenCoords={EarthenCoords}
           solarBlinkersCoords={SolarCoords}
+        />
+      );
+    } else if (props.text === "User Services") {
+      const {
+        TrafficBarrierCoords,
+        SpeedBreakersCoords,
+        EncroachmentHoardingsCoords,
+      } = UserServices();
+      return (
+        <CanvasLineCharts
+          text="User Services"
+          TrafficBarrierCoords={TrafficBarrierCoords}
+          SpeedBreakersCoords={SpeedBreakersCoords}
+          EncroachmentHoardingsCoords={EncroachmentHoardingsCoords}
         />
       );
     }

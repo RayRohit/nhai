@@ -14,10 +14,14 @@ export function GlobalState(props) {
         HSEarthenShoulderPeak:0,
         HSSolarBlinkerPeak:0,
         HSMedianPeak:0,
+        USTrafficBarrier:0,
+        USSpeedBreakers : 0,
+        USIllegalEncroachment:0,
         HED : true,
         HEN : true,
         HSD:true,
         HSN:true,
+        US : true
     })
 
   return (
