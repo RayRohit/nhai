@@ -1,0 +1,60 @@
+{
+      "Pie_Chart_Value": [
+            {
+                  "Operating_Speed": 1.7,
+                  "Delay_Toll_Plaza": 0,
+                  "Traffic_Volume": 0.0,
+                  "Accident_per_km": 0,
+                  "Accident_Severity_Index": 0,
+                  "Avg_Ambulance_Response_Time": 0,
+                  "Incident_Response_Time": 0,
+                  "Roadway_Clearance_Time": 0
+            }
+      ],
+      "Card_Value": [
+            {
+                  "Operating_Speed": 15.3,
+                  "Operating_Speed_formula": {
+                        "Average_Speed": "68 kmph"
+                  },
+                  "Delay_Toll_Plaza": 4,
+                  "Delay_Toll_Plaza_formula": {
+                        "Average_Delay": "45 secs"
+                  },
+                  "Traffic_Volume": 2.5,
+                  "Traffic_Volume_Calculation": {
+                        "Average_Loss_Category": "B"
+                  },
+                  "Accident_per_km": 4,
+                  "Accident_per_km_formula": {
+                        "Average_accident": 0
+                  },
+                  "Accident_Severity_Index": 4,
+                  "Accident_Severity_Index_formula": {
+                        "Average_Fatalities": 0
+                  },
+                  "Avg_Ambulance_Response_Time": 4,
+                  "Avg_Ambulance_Response_Time_formula": {
+                        "Average_Time": "10 min"
+                  },
+                  "Avg_Incident_Response_Time": 2,
+                  "Avg_Incident_Response_Time_formula": {
+                        "Average_Incident_Response": "10 min"
+                  },
+                  "Roadway_Clearance_Time": 2,
+                  "Roadway_Clearance_Time_formula": {
+                        "Average_clearance_time": "30 min"
+                  }
+            }
+      ],
+      "Gauge_Value": {
+            "Marks_obtained": 37.8,
+            "Total_Marks": 39.5
+      },
+      "Total_Value_HE": 37.5,
+      "Non_Analysed_HE": 7.5,
+      "Total_Value_HS": 31,
+      "Non_Analysed_HS": 4,
+      "Total_Value_US": 7,
+      "Non_Analysed_US": 13
+}

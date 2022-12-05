@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;800&display=swap');
+* {
+  font-family: Plus Jakarta Sans;
+}
+
+@import 'https://js.arcgis.com/4.25/@arcgis/core/assets/esri/themes/light/main.css';
+
+.mapDiv {
+  padding: 0;
+  margin: 0;
+  height: 80vh;
+  width: 100%;
+}
