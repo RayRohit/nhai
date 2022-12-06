@@ -7,13 +7,13 @@ export default class CompareGraph extends React.Component {
     this.state = {
       series: [
         {
-          name: "Current",
+          name: "Current Month",
 
           data: props.graphics_value_current.data,
         },
 
         {
-          name: "Previous",
+          name: "Previous Month",
 
           data: props.graphics_value_previous.data,
         },
@@ -49,17 +49,20 @@ export default class CompareGraph extends React.Component {
           intersect: false,
         },
         xaxis: {
-          categories: ["As. Paving", "", 2003, 2004, 2005, 2006, 2007],
+          categories: ["Asphalt Base", "Asphalt Paving", "Fine Grading","Mounting","Clearing and Excavation"],
           labels: {
+            rotate:-45,
             show: true,
             style: {
               colors: ["#E4E6E9", "#E4E6E9", "#E4E6E9"],
+
             },
           },
         },
         yaxis: {
           labels: {
             show: true,
+            rotate:-90,
             style: {
               colors: [
                 "#273143",

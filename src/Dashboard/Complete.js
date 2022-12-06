@@ -42,6 +42,7 @@ export default class Complete extends React.Component {
                 enabled: true,
                 offsetX: 0,
                 style: {
+                  colors:["#000"],
                   fontSize: "1px",
                   fontWeight: 900, 
                 },
@@ -53,16 +54,17 @@ export default class Complete extends React.Component {
           width: 1,
           colors: ["#fff"],
         },
+  
         title: {
           style: {
-            color: "#e4e6e9",
+            color: "#000",
           },
         },
         xaxis: {
-          // categories: ["Highway Rating"],
+          categories: ["Highway Rating"],
           labels: {
             show: "true",
-            style: {
+              style: {
               colors: ["#E4E6E9"],
             },
           },
@@ -78,6 +80,7 @@ export default class Complete extends React.Component {
         yaxis: {
           labels: {
             show: true,
+            rotate:-90,
             align: 'right',
             minWidth: 0,
             maxWidth: 160,
@@ -88,10 +91,6 @@ export default class Complete extends React.Component {
                 fontWeight: 400,
                 cssClass: 'apexcharts-yaxis-label',
             },
-          },
-          title: {
-            text: "Highway Rating",
-           
           },
           title: {
             text: "Highway Rating",
@@ -138,9 +137,9 @@ export default class Complete extends React.Component {
           series={this.state.series}
           type="bar"
           height={200}
-          style={{ color: "#E4E6E9" }}
+          style={{ color: "#222" }}
         />
       </div>
     );
   }
-}
+} 

@@ -15,13 +15,13 @@ function CanvasLineCharts(props) {
       theme: "dark",
       animationEnabled: true,
       axisY: {
-        title: "Kpi Score",
+        title: "KPI Score",
         titleFontColor: "#E4E6E9",
         labelFontColor: "#E4E6E9",
       },
       axisX: {
         title: "Seconds",
-        titleFontColor: "#ffE4E6E9f",
+        titleFontColor: "#E4E6E9",
         labelFontColor: "#E4E6E9",
       },
       toolTip: {
@@ -87,7 +87,7 @@ function CanvasLineCharts(props) {
       theme: "dark",
       animationEnabled: true,
       axisY: {
-        title: "Kpi Score",
+        title: "KPI Score",
         titleFontColor: "#e4e6e9",
         labelFontColor: "#e4e6e9",
       },
@@ -167,7 +167,7 @@ function CanvasLineCharts(props) {
       theme: "dark",
       animationEnabled: true,
       axisY: {
-        title: "Kpi Score",
+        title: "KPI Score",
         titleFontColor: "#E4E6E9",
         labelFontColor: "#E4E6E9",
       },

@@ -31,7 +31,7 @@ export default function Compare() {
           </Typography>
 
           <Typography variant="p" sx={{ color: "#969ea9" }}>
-            SThe graph shows completion of each phase in meters
+            The graph shows completion of each phase in meters
           </Typography>
 
           <Box>
