@@ -640,6 +640,6 @@ export default function LineGraph(props) {
           </Box>
         </Box>
       </Paper>
-    </>
+    </> 
   );
 }
