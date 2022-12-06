@@ -64,7 +64,7 @@
   color: gray;
 }
 .sidebar-icons {
-  margin-right: 40px;
+  margin-right: 10px;
   height: 25px;
   width: 25px;
 }
@@ -86,8 +86,9 @@
   top: 1.07%;
 }
 .logoWrapper {
-  height: 15vh;
+  height: 93px !important;
   z-index: 99;
+  /* background: #fff !important; */
 }
 .icon {
   padding: 0px !important;

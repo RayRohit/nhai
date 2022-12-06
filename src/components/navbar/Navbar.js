@@ -309,13 +309,13 @@ const Navbar = () => {
         </AppBar>
 
         <Drawer variant="permanent" open={open}>
-          <Toolbar>
-            <div className="logoWrapper" >
+          <Toolbar >
+            <div className="logoWrapper" sx={{background:'#fff',height:'93px'}}>
               <img className="logo" src={NavajnaLogo} alt="logo" style={{marginTop:'12px'}} />
             </div>
           </Toolbar>
           <Divider />
-          <List component="nav">
+          <List component="nav" sx={{background:"#273143 !important"}}>
             <MainListItems open={open} />
           </List>
           {open ? (

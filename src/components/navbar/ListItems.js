@@ -144,7 +144,7 @@ export const MainListItems = ({ open }) => {
               onClick={handleClickk}
             >
               <img className="sidebar-icons" src={Contacts} alt="Contacts" />
-              Operation & Construction 
+              Operations & Construction 
             </NavLink>
             <Collapse in={dopen} timeout="auto" unmountOnExit>
               <List className="listgroup" component="div" disablePadding>
