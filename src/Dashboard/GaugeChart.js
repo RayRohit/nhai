@@ -89,7 +89,7 @@ export default function GaugeChart(props) {
           options={options}
           series={guagevalue}
           type="radialBar"
-          style={{ height: "200px" }}
+          style={{ height: "180px" }}
         />
         {/* <GaugeChart id="gauge-chart3"
                       nrOfLevels={20}

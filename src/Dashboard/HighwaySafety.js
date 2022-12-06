@@ -115,7 +115,7 @@ export default function HighwaySafety() {
             </Grid>
             {/* =================================================== */}
             <Grid item lg={3} xl={1.6}>
-              <TwoCard image={fast} text={"FASTag Data"} />
+              <TwoCard image={toll} text={"TOll Data"} />
             </Grid>
             <Grid item lg={9} xl={3}>
               <Gauge

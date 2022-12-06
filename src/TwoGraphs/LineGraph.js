@@ -496,7 +496,7 @@ export default function LineGraph(props) {
       (a, b) => a - b
     );
     var TrafficBarrierCoords = [];
-    var TrafficBarrierPeak = 1;
+    var TrafficBarrierPeak = TrafficBarrierRange.length===0?0:1;
     for (
       let i = 0;
       i <= TrafficBarrierRange[TrafficBarrierRange.length - 1];

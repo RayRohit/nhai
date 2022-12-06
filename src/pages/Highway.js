@@ -8,11 +8,10 @@ import Grid from "@mui/material/Grid";
 import Switch, { SwitchProps } from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
 import Inter from "../Assests/Images/Inter.png";
-import cross from '../Assests/Images/cross.png'
-import service from '../Assests/Images/service.png'
-import damaged from '../Assests/Images/damaged.png'
-import plantation from '../Assests/Images/plantation.png'
-
+import cross from "../Assests/Images/cross.png";
+import service from "../Assests/Images/service.png";
+import damaged from "../Assests/Images/damaged.png";
+import plantation from "../Assests/Images/plantation.png";
 
 import {
   Preferences,
@@ -208,8 +207,10 @@ const Highway = () => {
           alignContent="space-between"
         >
           <Stack spacing={4}>
-           
-            <Card variant="outlined" sx={{ height: 70, background: "#273143",mt:4 }}>
+            <Card
+              variant="outlined"
+              sx={{ height: 70, background: "#273143", mt: 4 }}
+            >
               {/* sx={{ height: 60 }} */}
               <CardContent>
                 <Stack
@@ -217,7 +218,6 @@ const Highway = () => {
                   spacing={1}
                   alignItems="center"
                   justifyContent="space-between"
-                  
                 >
                   <Stack direction="row" spacing={3} alignItems="center">
                     <img height={30} src={service} />
@@ -234,7 +234,7 @@ const Highway = () => {
                     <ProgressCard value="0" />
                   </Box> */}
                   <Typography
-                    sx={{ fontSize: 14, fontWeight: 600,color:'#e4e6e9' }}
+                    sx={{ fontSize: 14, fontWeight: 600, color: "#e4e6e9" }}
                     gutterBottom
                   >
                     2.996
@@ -266,7 +266,7 @@ const Highway = () => {
                     <ProgressCard value="0" />
                   </Box> */}
                   <Typography
-                    sx={{ fontSize: 14, fontWeight: 600,color:'#e4e6e9' }}
+                    sx={{ fontSize: 14, fontWeight: 600, color: "#e4e6e9" }}
                     gutterBottom
                   >
                     0
@@ -275,6 +275,7 @@ const Highway = () => {
               </CardContent>
             </Card>
             <Card variant="outlined" sx={{ height: 70, background: "#273143" }}>
+              {/* sx={{ height: 60 }} */}
               <CardContent>
                 <Stack
                   direction="row"
@@ -283,29 +284,29 @@ const Highway = () => {
                   justifyContent="space-between"
                 >
                   <Stack direction="row" spacing={3} alignItems="center">
-                    <img height={30} src={damaged} />
+                    <img height={30} src={Inter} />
                     <Typography
                       sx={{ fontSize: 14 }}
                       color="#E4E6E9"
                       gutterBottom
                     >
-                      Damaged Barriers
+                      Damaged Barrier
                     </Typography>
                   </Stack>
+
+                  {/* <Box>
+                    <ProgressCard value="0" />
+                  </Box> */}
                   <Typography
-                    sx={{ fontSize: 14 }}
-                    color="#E4E6E9"
+                    sx={{ fontSize: 14, fontWeight: 600, color: "#e4e6e9" }}
                     gutterBottom
                   >
-                    0.998
+                    0.996
                   </Typography>
-                  <Box>
-                    {/* <ProgressCard value="0.998" />
-                     */}
-                  </Box>
                 </Stack>
               </CardContent>
             </Card>
+
             <Card variant="outlined" sx={{ height: 70, background: "#273143" }}>
               <CardContent>
                 <Stack
@@ -335,7 +336,6 @@ const Highway = () => {
                   >
                     2.99
                   </Typography>
-                  
                 </Stack>
               </CardContent>
             </Card>

@@ -99,18 +99,21 @@ export default function UserServices() {
               />
             </Grid>
             {/* =================================================== */}
-            <Grid item lg={3} xl={1.6}>
+            {/* <Grid item lg={3} xl={1.6}>
               <TwoCard image={toll} text={"Toll Data"} />
             </Grid>
             <Grid item lg={9} xl={3}>
-              <Gauge />
+              <TwoCard  text={"No Data"} />
+
             </Grid>
             <Grid item lg={6} xl={4}>
-              <PieGraph />
+              <TwoCard  text={"No Data"} />
+
             </Grid>
             <Grid item lg={6} xl={3}>
-              <Stacked />
-            </Grid>
+              <TwoCard  text={"No Data"} />
+
+            </Grid> */}
           </Grid>
         </>
       ) : (
@@ -213,7 +216,7 @@ export default function UserServices() {
               <Stacked />
             </Grid> */}
           {/* =================================================== */}
-          <Grid
+          {/* <Grid
             container
             spacing={3}
             sx={{
@@ -227,23 +230,16 @@ export default function UserServices() {
             <Grid item lg={3} xl={3}>
               <TwoCard image={toll} text={"Toll Data"} />
             </Grid>
-            <Grid item lg={9} xl={9}>
-              {/* <Gauge GaugeValue={0} /> */}
+            <Grid item lg={3} xl={3} sx={{background:'#273143',mt:2}}>
+              
             </Grid>
-            <Grid item lg={6} xl={6}>
-              {/* <PieGraph
-                status="User Services"
-                text="Toll Data"
-                // GaugeValue={0}
-                // WaysideAmenities={4 - 0}
-                // ToiletandDrinkingWater = {2-0}
-                // SatisfactionIndex={4-0}
-              /> */}
+            <Grid item lg={3} xl={3} sx={{background:'#273143',mt:2}}>
+              
             </Grid>
-            <Grid item lg={6} xl={6}>
-              {/* <Stacked /> */}
+            <Grid item lg={3} xl={3} sx={{background:'#273143',mt:2}}>
+
             </Grid>
-          </Grid>
+          </Grid> */}
           {/* <Grid item lg={3} xl={3}>
               <TwoCard image={fast} text={"FASTag Data"} />
             </Grid>

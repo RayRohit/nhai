@@ -507,7 +507,7 @@ export default class StackedBar extends React.Component {
           ],
 
           options: {
-            colors: ["#FF9800", "#3D9EED", "#66ffca","#fff","#222"],
+            colors: ["#FF9800", "#3D9EED", "#66ffca","#ffff00","#EC8686"],
             chart: {
               type: "bar",
               height: 150,

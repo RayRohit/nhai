@@ -20,7 +20,10 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const { state } = useContext(AppContext);
-
+  console.log(state);
+  console.log(textjson);
+  console.log(data);
+  //--------------------------------------------HE
   const totalObtainedPoints =
     textjson.Card_Value[0].Operating_Speed +
     textjson.Card_Value[0].Delay_Toll_Plaza +
@@ -44,6 +47,17 @@ export default function Dashboard() {
     state.HSMedianPeak;
 
   const deductedHS = textjson.Total_Value_HS - totalObtainedPointsHS;
+  //--------------------------------------------HS
+
+  const totalObtainedPointsUS =
+    state.USIllegalEncroachment +
+    state.USSpeedBreakers +
+    state.USTrafficBarrier +
+    data.Card_Value.Plantation;
+  const deductedUS = textjson.Total_Value_US - totalObtainedPointsUS;
+  // console.log(data.Card_Value.Plantation)
+
+  //--------------------------------------------US
 
   var PositiveServiceRoad;
   var PositiveCarriageWay;
@@ -198,7 +212,11 @@ export default function Dashboard() {
           />
         </Grid>
         <Grid item xs={4} md={4} lg={4}>
-          <CompleteGraph />
+          <CompleteGraph
+            totalObtained={totalObtainedPointsUS}
+            deductedPoints={deductedUS}
+            nonAnalysedPoint={textjson.Non_Analysed_US}
+          />
         </Grid>
       </Grid>
     </>

@@ -3,7 +3,7 @@ import ReactApexChart from "react-apexcharts";
 export default class CompareGraph extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log(props)
     this.state = {
       series: [
         {
@@ -49,7 +49,7 @@ export default class CompareGraph extends React.Component {
           intersect: false,
         },
         xaxis: {
-          categories: [2001, 2002, 2003, 2004, 2005, 2006, 2007],
+          categories: ["As. Paving", "", 2003, 2004, 2005, 2006, 2007],
           labels: {
             show: true,
             style: {
@@ -62,16 +62,16 @@ export default class CompareGraph extends React.Component {
             show: true,
             style: {
               colors: [
-                "#E4E6E9",
-                "#E4E6E9",
-                "#E4E6E9",
-                "#E4E6E9",
-                "#E4E6E9",
-                "#E4E6E9",
-                "#E4E6E9",
-                "#E4E6E9",
-                "#E4E6E9",
-                "#E4E6E9",
+                "#273143",
+                "#273143",
+                "#273143",
+                "#273143",
+                "#273143",
+                "#273143",
+                "#273143",
+                "#273143",
+                "#273143",
+                "#273143",
               ],
             },
           },

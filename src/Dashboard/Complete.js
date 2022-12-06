@@ -5,9 +5,9 @@ export default class Complete extends React.Component {
   constructor(props) {
     super(props);
     const total =
-      props.totalObtained === undefined ? 33 : props.totalObtained.toFixed(1);
+      props.totalObtained === undefined ? 33 : props.totalObtained.toFixed(3);
     const deducted =
-      props.deductedPoints === undefined ? 33 : props.deductedPoints.toFixed(1);
+      props.deductedPoints === undefined ? 33 : props.deductedPoints.toFixed(3);
     const nonAnalysed =
       props.nonAnalysedPoint === undefined
         ? 33

@@ -20,13 +20,13 @@ export default function PieGraph(props) {
               sx={{ color: "#e4e6e9", fontWeight: "bolder" }}
             >
               Gap Analysis of <span style={{ color: "#F5365C" }}>{(100-props.GaugeValue?.toFixed(4) * 100).toFixed(2)}</span> for
-              Evaluation Rating Index
+              ERI
             </Typography>
             <Typography variant="p" sx={{ color: "#969ea9" }}>
               Spread of paramaters contributing to Evaluation Rating degradation
             </Typography>
             <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
-              <Box sx={{my:2}}>
+              <Box sx={{my:2,width:'100%'}}>
                 <Pie {...props}/>
               </Box>
             </Box>

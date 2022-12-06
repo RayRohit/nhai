@@ -35,7 +35,7 @@ export default class Pie extends React.Component {
             ],
             labels: ["Carriage Way", "Service Road"],
             legend: {
-              // position: "bottom",
+              position: "top",
               fontSize: "12px",
               labels: {
                 colors: ["#e4e6e9"],
@@ -72,7 +72,7 @@ export default class Pie extends React.Component {
             ],
             labels: ["Standard Signage", "Stardard Marking"],
             legend: {
-              // position: "bottom",
+              position: "top",
               fontSize: "12px",
               labels: {
                 colors: ["#e4e6e9"],
@@ -112,7 +112,7 @@ export default class Pie extends React.Component {
             ],
             labels: ["Delay Toll Plaza", "Operating Speed", "Taffic Volume"],
             legend: {
-              // position: "bottom",
+              position: "top",
               fontSize: "12px",
               labels: {
                 colors: ["#e4e6e9"],
@@ -180,7 +180,7 @@ export default class Pie extends React.Component {
             ],
             labels: ["Damaged Barrier", "Cross Movement Structure"],
             legend: {
-              // position: "bottom",
+              position: "top",
               fontSize: "12px",
               labels: {
                 colors: ["#e4e6e9"],
@@ -216,7 +216,7 @@ export default class Pie extends React.Component {
             ],
             labels: ["Earthen Shoulder", "Solar Blinkers", "Illegal Median"],
             legend: {
-              // position: "bottom",
+              position: "top",
               fontSize: "12px",
               labels: {
                 colors: ["#e4e6e9"],
@@ -253,7 +253,7 @@ export default class Pie extends React.Component {
             ],
             labels: ["AccidentPerKM", "AccidentSeverityIndex", "AmbulanceResponseTime","IncidentResponseTime","RoadwayClearanceTime"],
             legend: {
-              // position: "bottom",
+              position: "top",
               fontSize: "12px",
               labels: {
                 colors: ["#e4e6e9"],
@@ -329,7 +329,7 @@ export default class Pie extends React.Component {
               "Traffic Barrier",
             ],
             legend: {
-              // position: "bottom",
+              position: "top",
               fontSize: "12px",
               labels: {
                 colors: ["#e4e6e9"],
@@ -364,7 +364,7 @@ export default class Pie extends React.Component {
               "Plantation"
             ],
             legend: {
-              // position: "bottom",
+              position: "top",
               fontSize: "12px",
               labels: {
                 colors: ["#e4e6e9"],
@@ -395,7 +395,7 @@ export default class Pie extends React.Component {
             ],
             labels: ["Carriage Way", "Service Road"],
             legend: {
-              // position: "bottom",
+              position: "top",
               fontSize: "12px",
               labels: {
                 colors: ["#e4e6e9"],
@@ -475,7 +475,7 @@ export default class Pie extends React.Component {
           options={this.state.options}
           series={this.state.series}
           type="donut"
-          height={220}
+          height={200}
           // width={320}
         />
       </div>
