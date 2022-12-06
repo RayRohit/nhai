@@ -625,11 +625,11 @@ export default function LineGraph(props) {
             variant="h5"
             sx={{ color: "#e4e6e9", fontWeight: "bolder" }}
           >
-            Graph visualization of each mark
+            Rating Degradation Curve
           </Typography>
-          <Typography variant="p" sx={{ color: "#969ea9" }}>
-            Line graph deprecting no. of marks scored/deducted per second of the
-            video
+          <Typography variant="p" sx={{ color: "#969ea9",fontSize:'14px' }}>
+            Line graph depicting No. Of Marks Scored/Deducted Per Second Of The
+            Video
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
             <Box sx={{ width: "30vw" }}>

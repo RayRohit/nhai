@@ -15,21 +15,21 @@ function CanvasLineCharts(props) {
       theme: "dark",
       animationEnabled: true,
       axisY: {
-        title: "Rating",
-        titleFontColor: "#fff",
-        labelFontColor: "#fff",
+        title: "Kpi Score",
+        titleFontColor: "#E4E6E9",
+        labelFontColor: "#E4E6E9",
       },
       axisX: {
         title: "Seconds",
-        titleFontColor: "#fff",
-        labelFontColor: "#fff",
+        titleFontColor: "#ffE4E6E9f",
+        labelFontColor: "#E4E6E9",
       },
       toolTip: {
         shared: "true",
       },
       legend: {
         cursor: "pointer",
-        fontColor: "#fff",
+        fontColor: "#E4E6E9",
         itemclick: (e) => {
           if (
             typeof e.dataSeries.visible === "undefined" ||
@@ -87,21 +87,21 @@ function CanvasLineCharts(props) {
       theme: "dark",
       animationEnabled: true,
       axisY: {
-        title: "Rating",
-        titleFontColor: "#fff",
-        labelFontColor: "#fff",
+        title: "Kpi Score",
+        titleFontColor: "#e4e6e9",
+        labelFontColor: "#e4e6e9",
       },
       axisX: {
         title: "Seconds",
-        titleFontColor: "#fff",
-        labelFontColor: "#fff",
+        titleFontColor: "#e4e6e9",
+        labelFontColor: "#e4e6e9",
       },
       toolTip: {
         shared: "true",
       },
       legend: {
         cursor: "pointer",
-        fontColor: "#fff",
+        fontColor: "#e4e6e9",
         itemclick: (e) => {
           if (
             typeof e.dataSeries.visible === "undefined" ||
@@ -167,21 +167,21 @@ function CanvasLineCharts(props) {
       theme: "dark",
       animationEnabled: true,
       axisY: {
-        title: "Rating",
-        titleFontColor: "#fff",
-        labelFontColor: "#fff",
+        title: "Kpi Score",
+        titleFontColor: "#E4E6E9",
+        labelFontColor: "#E4E6E9",
       },
       axisX: {
         title: "Seconds",
-        titleFontColor: "#fff",
-        labelFontColor: "#fff",
+        titleFontColor: "#E4E6E9",
+        labelFontColor: "#E4E6E9",
       },
       toolTip: {
         shared: "true",
       },
       legend: {
         cursor: "pointer",
-        fontColor: "#fff",
+        fontColor: "#E4E6E9",
         itemclick: (e) => {
           if (
             typeof e.dataSeries.visible === "undefined" ||

@@ -20,9 +20,9 @@ export default function CompleteGraph(props) {
             variant="h5"
             sx={{ color: "#e4e6e9", fontWeight: "bolder" }}
           >
-            Rating Analysis
+            Rating Analysis Summary
           </Typography>
-          <Typography variant="p" sx={{ color: "#969ea9" }}>
+          <Typography variant="p" sx={{ color: "#969ea9",fontSize:'14px' }}>
             Stacked Bar Showing Total No. of Marks Acheived Through AI Engine.
           </Typography>
           <Box>

@@ -170,9 +170,9 @@ const Navbar = () => {
               color: "white",
             }}
           >
-              {!open && (
+              {/* {!open && (
                 <img src={smallLogo} alt="slogo" className="smallLogo" />
-              )}
+              )} */}
             {location.pathname === "/highway-rating" ? (
               <>
                 {/* <Box
