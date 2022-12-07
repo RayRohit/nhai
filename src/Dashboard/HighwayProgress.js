@@ -37,14 +37,14 @@ export default function HighwayProgress() {
               <ProCard
                 image={paving}
                 title={"Asphalt Paving"}
-                value={constdata.card_value_current["Asphalt Pavement"]}
+                value={constdata.card_value_current["Asphalt_Base"]} //Asphalt_Base
               />
             </Grid>
             <Grid item>
               <ProCard
                 image={base}
                 title={"Asphalt Base"}
-                value={constdata.card_value_current.Asphalt_Base}
+                value={constdata.card_value_current["Asphalt Pavement"]}
               />
             </Grid>
           </Grid>

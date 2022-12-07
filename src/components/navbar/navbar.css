@@ -36,9 +36,14 @@
   background-color: #fff !important;
   height: 93px !important;
 }
+.css-1qs9b80-MuiToolbar-root{
+  background-color: #fff !important;
+
+}
 /* .css-10mty7c-MuiToolbar-root {
   background: #2986CE !important;
 } */
+
 .sidebarStyle {
   display: flex;
   align-content: center;
@@ -48,6 +53,7 @@
   text-decoration: none;
   padding: 10px;
   /* background-color: #123073; */
+  width: 100%;
 }
 .collapseStyle {
   display: flex;

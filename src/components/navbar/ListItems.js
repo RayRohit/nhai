@@ -63,11 +63,11 @@ export const MainListItems = ({ open }) => {
           <div>
             <NavLink
               to="mycontact"
-              className="text-white sidebarStyle"
+              className="text-white sidebarStyle "
               onClick={handleClick}
             >
               <img className="sidebar-icons" src={Contacts} alt="Contacts" />
-              Operations & Maintenance 
+              Operations & <br/> Maintenance 
             </NavLink>
             <Collapse in={copen} timeout="auto" unmountOnExit>
               <List className="listgroup" component="div" disablePadding>
@@ -144,7 +144,7 @@ export const MainListItems = ({ open }) => {
               onClick={handleClickk}
             >
               <img className="sidebar-icons" src={Contacts} alt="Contacts" />
-              Operations & Construction 
+              Operations & <br/> Construction 
             </NavLink>
             <Collapse in={dopen} timeout="auto" unmountOnExit>
               <List className="listgroup" component="div" disablePadding>
@@ -212,7 +212,7 @@ export const MainListItems = ({ open }) => {
                     App Preferences
                 </NavLink> */}
       </div>
-      <div className="Sidebarbottom">
+      <div className="Sidebarbottom" style={{background:'#273143'}}>
         {/* {open && (
                     <ListItemButton sx={{ mt: 3, ml: 5, mr: 4 }}>
                         <ListItemText primary="Powered by" />
