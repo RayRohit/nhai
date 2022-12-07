@@ -25,9 +25,9 @@
   height: 70vh;
   background-color: #273143;
 }
-.sidebartop-scroll {
+/* .sidebartop-scroll {
   overflow-y: scroll;
-}
+} */
 .active {
   background-color: #333d4e !important;
   color: #E4E6E9 !important;

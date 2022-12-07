@@ -284,7 +284,7 @@ const Highway = () => {
                   justifyContent="space-between"
                 >
                   <Stack direction="row" spacing={3} alignItems="center">
-                    <img height={30} src={Inter} />
+                    <img height={30} src={damaged} />
                     <Typography
                       sx={{ fontSize: 14 }}
                       color="#E4E6E9"
