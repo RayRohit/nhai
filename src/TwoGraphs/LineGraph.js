@@ -612,14 +612,14 @@ export default function LineGraph(props) {
 
   return (
     <>
-      <Paper
-        sx={{
-          background: "#273143",
-          p: 2,
-          height: "300px",
-          borderRadius: "10px",
-        }}
-      >
+        <Paper
+          sx={{
+            background: "#273143",
+            p: 2,
+            height: "300px",
+            borderRadius: "10px",
+          }}
+        >
         <Box>
           <Typography
             variant="h5"

@@ -46,6 +46,8 @@ import UserSafety from "../../Dashboard/UserSafety";
 import UserServices from "../../Dashboard/UserSafety";
 import HighwayStrength from "../../Dashboard/HighwayStrength";
 import HighwayProgress from "../../Dashboard/HighwayProgress";
+import Comparision from "../../Dashboard/Comparision";
+import Maintenance from "../../Dashboard/Maintenance";
 
 const drawerWidth = 240;
 
@@ -155,6 +157,8 @@ const Navbar = () => {
       setTitle("Highway Construction Progress Of Chakur-Loha");
     } else if (location.pathname === "/phonebookcontacts") {
       setTitle("Falling Weight Deflectometer Analysis Paramaters ");
+    } else if (location.pathname === "/comparisionanalysis") {
+      setTitle("");
     }
   }, [location.pathname]);
   return (
@@ -170,21 +174,13 @@ const Navbar = () => {
               color: "white",
             }}
           >
-              {/* {!open && (
+            {/* {!open && (
                 <img src={smallLogo} alt="slogo" className="smallLogo" />
               )} */}
             {location.pathname === "/highway-rating" ? (
               <>
-                {/* <Box
-                  sx={{
-                    p: 3,
-                    borderRadius: "20px",
-                    fontStyle: "italic",
-                    width: "40vw",
-                  }}
-                > */}
                 <Typography
-                  variant="h5"
+                  variant="h6"
                   sx={{ fontWeight: "bolder", color: "black" }}
                 >
                   {title}
@@ -193,7 +189,10 @@ const Navbar = () => {
                 <Box sx={{ display: "flex", ml: "auto", alignItems: "center" }}>
                   <Box sx={{ minWidth: 120 }}>
                     <FormControl fullWidth>
-                      <InputLabel id="demo-simple-select-label" sx={{fontWeight:'bolder'}}>
+                      <InputLabel
+                        id="demo-simple-select-label"
+                        sx={{ fontWeight: "bolder" }}
+                      >
                         Source
                       </InputLabel>
                       <Select
@@ -202,7 +201,7 @@ const Navbar = () => {
                         value={age}
                         label="Age"
                         onChange={handleChange}
-                        sx={{ borderRadius: "10px",fontWeight:'bolder' }}
+                        sx={{ borderRadius: "10px", fontWeight: "bolder" }}
                       >
                         <MenuItem value={10}>Drone Video</MenuItem>
                         <MenuItem value={20}>NSV Video</MenuItem>
@@ -212,7 +211,12 @@ const Navbar = () => {
                   </Box>
                   <Button
                     variant="contained"
-                    sx={{ m: 3, py: 2, borderRadius: "10px",fontWeight:'bolder' }}
+                    sx={{
+                      m: 3,
+                      py: 2,
+                      borderRadius: "10px",
+                      fontWeight: "bolder",
+                    }}
                   >
                     Load Data
                   </Button>
@@ -220,15 +224,6 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                {/* <Paper
-                  elevation={4}
-                  sx={{
-                    p: 3,
-                    borderRadius: "20px",
-                    fontStyle: "italic",
-                    width: "90vw",
-                  }}
-                > */}
                 {location.pathname === "/phonebookcontacts" ? (
                   <>
                     <Box>
@@ -253,28 +248,14 @@ const Navbar = () => {
                     <Box
                       sx={{ display: "flex", ml: "auto", alignItems: "center" }}
                     >
-                      {/* <Box sx={{ minWidth: 120 }}>
-                        <FormControl fullWidth>
-                          <InputLabel id="demo-simple-select-label">
-                            Source
-                          </InputLabel>
-                          <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={age}
-                            label="Age"
-                            onChange={handleChange}
-                            sx={{ borderRadius: "10px" }}
-                          >
-                            <MenuItem value={10}>Drone Video</MenuItem>
-                            <MenuItem value={20}>NSV Video</MenuItem>
-                            <MenuItem value={30}>Toll Data</MenuItem>
-                          </Select>
-                        </FormControl>
-                      </Box> */}
                       <Button
                         variant="contained"
-                        sx={{ m: 3, py: 2, borderRadius: "10px",fontWeight:'bolder' }}
+                        sx={{
+                          m: 3,
+                          py: 2,
+                          borderRadius: "10px",
+                          fontWeight: "bolder",
+                        }}
                       >
                         Import From Database
                       </Button>
@@ -282,17 +263,45 @@ const Navbar = () => {
                   </>
                 ) : (
                   <>
-                    <Typography
-                      variant="h5"
-                      sx={{ fontWeight: "bold", color: "black" }}
-                    >
-                      {title}
-                    </Typography>
+                    {location.pathname === "/comparisionanalysis" ||
+                    location.pathname === "/maintenanceanalysis" ? (
+                      <>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            ml: "auto",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Button
+                            variant="contained"
+                            sx={{
+                              m: 3,
+                              py: 2,
+                              borderRadius: "10px",
+                              fontWeight: "bolder",
+                            }}
+                          >
+                            Upload Video
+                          </Button>
+                        </Box>
+                      </>
+                    ) : (
+                      <>
+                        <Typography
+                          variant="h5"
+                          sx={{ fontWeight: "bold", color: "black" }}
+                        >
+                          {title}
+                        </Typography>
+                      </>
+                    )}
                   </>
                 )}
                 {/* </Paper> */}
               </>
             )}
+
             {/* <div className="searchWrapper">
               <input placeholder="Search Anything" className="searchBox" />
             </div>
@@ -309,13 +318,21 @@ const Navbar = () => {
         </AppBar>
 
         <Drawer variant="permanent" open={open}>
-          <Toolbar >
-            <div className="logoWrapper" sx={{background:'#fff',height:'93px'}}>
-              <img className="logo" src={NavajnaLogo} alt="logo" style={{marginTop:'12px'}} />
+          <Toolbar>
+            <div
+              className="logoWrapper"
+              sx={{ background: "#fff", height: "93px" }}
+            >
+              <img
+                className="logo"
+                src={NavajnaLogo}
+                alt="logo"
+                style={{ marginTop: "12px" }}
+              />
             </div>
           </Toolbar>
           <Divider />
-          <List component="nav" sx={{background:"#273143 !important"}}>
+          <List component="nav" sx={{ background: "#273143 !important" }}>
             <MainListItems open={open} />
           </List>
           {open ? (
@@ -364,6 +381,8 @@ const Navbar = () => {
               <Route path="user-services" element={<UserServices />} />
               <Route path="phonebookcontacts" element={<HighwayStrength />} />
               <Route path="highwayprogress" element={<HighwayProgress />} />
+              <Route path="comparisionanalysis" element={<Comparision />} />
+              <Route path="maintenanceanalysis" element={<Maintenance />} />
             </Routes>
           </Box>
         </Container>
