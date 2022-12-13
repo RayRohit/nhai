@@ -1,12 +1,12 @@
 import { Box, Card, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 import blurred from "../Assests/Images/blurred_lanes.png";
-import cracks from "../Assests/Images/cracks.png";
-import stains from "../Assests/Images/stains.png";
-import traffic from "../Assests/Images/traffic.png";
-import patch from "../Assests/Images/patch_works.png";
-import PieGraph from "../TwoGraphs/PieGraph";
-import CompGuage from "./CompGuage";
+import cones from "../Assests/Images/cones.png";
+import patchwork from "../Assests/Images/patchwork.png";
+import potholes from "../Assests/Images/potholes.png";
+import patch from "../Assests/Images/patch_works.png";  
+import MaintainanceGuage from "./MaintenanceGuage";
+import MaintainancePie from "./MaintenancePie";
 
 export default function Maintenance() {
   return (
@@ -32,196 +32,185 @@ export default function Maintenance() {
       <Grid container spacing={2}>
         <Grid item xs={3}>
           <Grid container>
-            <Paper
-              sx={{
-                background: "#273143",
-                p: 2,
-                borderRadius: "10px",
-                color: "#E4E6E9",
-                my: 2,
-              }}
-            >
-              <Grid item xs>
-                <Box
+            <Grid item>
+              <Box
+                sx={{
+                  // background: "#273143",
+                  p: 2,
+                  borderRadius: "10px",
+                  color: "#E4E6E9",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Card
                   sx={{
                     background: "#273143",
-                    p: 2,
-                    borderRadius: "10px",
-                    color: "#E4E6E9",
-                    my: 2,
                     display: "flex",
-                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    // flexDirection: "column",
+                    alignItems: "center",
+                    p: 2,
+                    width: "20vw",borderRadius:"10px"
                   }}
                 >
-                  <Card
-                    sx={{
-                      background: "#1b2531",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      // flexDirection: "column",
-                      alignItems: "center",
-                      px: 2,
-                      width: "20vw",
-                    }}
-                  >
-                    <Box>
-                      <img src={blurred} alt="blurred lanes" width="50px" />
-                    </Box>
-                    <Typography variant="h6" color="#E4E6E9">
-                      Blurred Lanes
-                    </Typography>
-                    <Typography variant="h6" color="#E4E6E9">
-                      211
-                    </Typography>
-                  </Card>
-                </Box>
-              </Grid>
-              <Grid item xs>
-                <Box
+                  <Box>
+                    <img src={blurred} alt="blurred lanes" width="50px" />
+                  </Box>
+                  <Typography variant="h6" color="#E4E6E9">
+                    Blurred Lanes
+                  </Typography>
+                  <Typography variant="h6" color="#E4E6E9">
+                    211
+                  </Typography>
+                </Card>
+              </Box>
+            </Grid>
+            <Grid item>
+              <Box
+                sx={{
+                  // background: "#273143",
+                  p: 2,
+                  borderRadius: "10px",
+                  color: "#E4E6E9",
+                  // my: 2,
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Card
                   sx={{
                     background: "#273143",
-                    p: 2,
-                    borderRadius: "10px",
-                    color: "#E4E6E9",
-                    my: 2,
                     display: "flex",
-                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    // flexDirection: "column",
+                    alignItems: "center",
+                    p: 2,
+                    width: "20vw",borderRadius:"10px"
                   }}
                 >
-                  <Card
-                    sx={{
-                      background: "#1b2531",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      // flexDirection: "column",
-                      alignItems: "center",
-                      px: 2,
-                      width: "20vw",
-                    }}
-                  >
-                    <Box>
-                      <img src={blurred} alt="blurred lanes" width="50px" />
-                    </Box>
-                    <Typography variant="h6" color="#E4E6E9">
-                      Blurred Lanes
-                    </Typography>
-                    <Typography variant="h6" color="#E4E6E9">
-                      211
-                    </Typography>
-                  </Card>
-                </Box>
-              </Grid>
-              <Grid item xs>
-                <Box
+                  <Box>
+                    <img src={blurred} alt="blurred lanes" width="50px" />
+                  </Box>
+                  <Typography variant="h6" color="#E4E6E9">
+                    Blurred Lanes
+                  </Typography>
+                  <Typography variant="h6" color="#E4E6E9">
+                    211
+                  </Typography>
+                </Card>
+              </Box>
+            </Grid>
+            <Grid item>
+              <Box
+                sx={{
+                  // background: "#273143",
+                  p: 2,
+                  borderRadius: "10px",
+                  color: "#E4E6E9",
+                  // my: 2,
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Card
                   sx={{
                     background: "#273143",
-                    p: 2,
-                    borderRadius: "10px",
-                    color: "#E4E6E9",
-                    my: 2,
                     display: "flex",
-                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    // flexDirection: "column",
+                    alignItems: "center",
+                    p: 2,
+                    width: "20vw",borderRadius:"10px"
                   }}
                 >
-                  <Card
-                    sx={{
-                      background: "#1b2531",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      // flexDirection: "column",
-                      alignItems: "center",
-                      px: 2,
-                      width: "20vw",
-                    }}
-                  >
-                    <Box>
-                      <img src={blurred} alt="blurred lanes" width="50px" />
-                    </Box>
-                    <Typography variant="h6" color="#E4E6E9">
-                      Blurred Lanes
-                    </Typography>
-                    <Typography variant="h6" color="#E4E6E9">
-                      211
-                    </Typography>
-                  </Card>
-                </Box>
-              </Grid>
-              <Grid item xs>
-                <Box
+                  <Box>
+                    <img src={blurred} alt="blurred lanes" width="50px" />
+                  </Box>
+                  <Typography variant="h6" color="#E4E6E9">
+                    Blurred Lanes
+                  </Typography>
+                  <Typography variant="h6" color="#E4E6E9">
+                    211
+                  </Typography>
+                </Card>
+              </Box>
+            </Grid>
+            <Grid item>
+              <Box
+                sx={{
+                  // background: "#273143",
+                  p: 2,
+                  borderRadius: "10px",
+                  color: "#E4E6E9",
+                  // my: 2,
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Card
                   sx={{
                     background: "#273143",
-                    p: 2,
-                    borderRadius: "10px",
-                    color: "#E4E6E9",
-                    my: 2,
                     display: "flex",
-                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    // flexDirection: "column",
+                    alignItems: "center",
+                    p: 2,
+                    width: "20vw",borderRadius:"10px"
                   }}
                 >
-                  <Card
-                    sx={{
-                      background: "#1b2531",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      // flexDirection: "column",
-                      alignItems: "center",
-                      px: 2,
-                      width: "20vw",
-                    }}
-                  >
-                    <Box>
-                      <img src={blurred} alt="blurred lanes" width="50px" />
-                    </Box>
-                    <Typography variant="h6" color="#E4E6E9">
-                      Blurred Lanes
-                    </Typography>
-                    <Typography variant="h6" color="#E4E6E9">
-                      211
-                    </Typography>
-                  </Card>
-                </Box>
-              </Grid>
-              <Grid item xs>
-                <Box
+                  <Box>
+                    <img src={blurred} alt="blurred lanes" width="50px" />
+                  </Box>
+                  <Typography variant="h6" color="#E4E6E9">
+                    Blurred Lanes
+                  </Typography>
+                  <Typography variant="h6" color="#E4E6E9">
+                    211
+                  </Typography>
+                </Card>
+              </Box>
+            </Grid>
+            <Grid item>
+              <Box
+                sx={{
+                  // background: "#273143",
+                  p: 2,
+                  borderRadius: "10px",
+                  color: "#E4E6E9",
+                  // my: 2,
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Card
                   sx={{
                     background: "#273143",
-                    p: 2,
-                    borderRadius: "10px",
-                    color: "#E4E6E9",
-                    my: 2,
                     display: "flex",
-                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    // flexDirection: "column",
+                    alignItems: "center",
+                    p: 2,
+                    width: "20vw",borderRadius:"10px"
                   }}
                 >
-                  <Card
-                    sx={{
-                      background: "#1b2531",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      // flexDirection: "column",
-                      alignItems: "center",
-                      px: 2,
-                      width: "20vw",
-                    }}
-                  >
-                    <Box>
-                      <img src={blurred} alt="blurred lanes" width="50px" />
-                    </Box>
-                    <Typography variant="h6" color="#E4E6E9">
-                      Blurred Lanes
-                    </Typography>
-                    <Typography variant="h6" color="#E4E6E9">
-                      211
-                    </Typography>
-                  </Card>
-                </Box>
-              </Grid>
-            </Paper>
+                  <Box>
+                    <img src={blurred} alt="blurred lanes" width="50px" />
+                  </Box>
+                  <Typography variant="h6" color="#E4E6E9">
+                    Blurred Lanes
+                  </Typography>
+                  <Typography variant="h6" color="#E4E6E9">
+                    211
+                  </Typography>
+                </Card>
+              </Box>
+            </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={8} >
-          <Grid container sx={{ml:12,mt:1}}>
-            <grid item xs={12}>
+        <Grid item xs={8}>
+          <Grid container sx={{ ml: 12, mt: 1 }}>
+            <Grid item xs={12}>
               <Paper
                 sx={{
                   background: "#273143",
@@ -229,7 +218,7 @@ export default function Maintenance() {
                   borderRadius: "10px",
                   color: "#e4e6e9",
                   my: 1,
-                  width:'51vw'
+                  width: "51vw",
                 }}
               >
                 <Box>
@@ -262,10 +251,10 @@ export default function Maintenance() {
                       <Typography variant="h6" sx={{ textAlign: "center" }}>
                         Fit
                       </Typography>
-                      <Typography variant="h6">100%</Typography>
+                      <Typography variant="h6">78%</Typography>
                     </Card>
                     <Box>
-                      <CompGuage />
+                      <MaintainanceGuage />
                     </Box>
                     <Card
                       sx={{
@@ -281,13 +270,45 @@ export default function Maintenance() {
                         Gap
                       </Typography>
                       <Typography variant="h6" sx={{ textAlign: "center" }}>
-                        0
+                        22%
                       </Typography>
                     </Card>
                   </Box>
                 </Box>
               </Paper>
-            </grid>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper
+                sx={{
+                  background: "#273143",
+                  p: 2,
+                  //   height: "300px",
+                  borderRadius: "10px",
+                }}
+              >
+                <Box>
+                  <Box>
+                    <Typography
+                      variant="h5"
+                      sx={{ color: "#e4e6e9", fontWeight: "bolder" }}
+                    >
+                      Gap Analysis of <span style={{ color: "red" }}>22%</span>{" "}
+                      for RQI
+                    </Typography>
+                    <Typography variant="p" sx={{ color: "#969ea9" }}>
+                      Spread of paramaters contributing to RQI
+                    </Typography>
+                    <Box
+                      sx={{ display: "flex", justifyContent: "space-evenly" }}
+                    >
+                      <Box sx={{ my: 2, width: "100%" }}>
+                        <MaintainancePie />
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+              </Paper>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

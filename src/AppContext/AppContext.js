@@ -21,7 +21,8 @@ export function GlobalState(props) {
         HEN : true,
         HSD:true,
         HSN:true,
-        US : true
+        US : true,
+        upload : false
     })
 
   return (
