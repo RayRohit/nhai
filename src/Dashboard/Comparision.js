@@ -276,7 +276,7 @@ export default function Comparision() {
           Detailed Quality Inference Video
         </Typography>
         <video width="100%" controls style={{ margin: "10px 0 10px 0" }}>
-          <source src={`http://209.209.41.154:5002/${state.comparisonjson?.Video_Name}`} type="video/mp4" />
+          <source src={video} type="video/mp4" />
           <source src="movie.ogg" type="video/ogg" />
           Your browser does not support the video tag.
         </video>

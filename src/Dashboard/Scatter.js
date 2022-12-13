@@ -1,6 +1,6 @@
 import ReactApexChart from "react-apexcharts";
-
-class scatter extends React.Component {
+import React from "react";
+export default class Scatter extends React.Component {
   constructor(props) {
     super(props);
 
@@ -125,15 +125,72 @@ class scatter extends React.Component {
           },
         },
         xaxis: {
-          tickAmount: 10,
+          tickAmount: 2,
+          min: 0,
+          max: 30,
+          range: undefined,
+          floating: false,
+          decimalsInFloat: undefined,
+          overwriteCategories: undefined,
+          position: "bottom",
           labels: {
-            formatter: function (val) {
-              return parseFloat(val).toFixed(1);
+            show: true,
+            style: {
+              colors: ["#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9",],
+              fontSize: "12px",
+              fontFamily: "Helvetica, Arial, sans-serif",
+              fontWeight: 400,
+              cssClass: "apexcharts-xaxis-label",
+            },
+          },
+          title: {
+            text: "Distance Traversed",
+            offsetX: 0,
+            offsetY: 80,
+            style: {
+              color: "#E4E6E9",
+              fontSize: "12px",
+              fontFamily: "Helvetica, Arial, sans-serif",
+              fontWeight: 600,
+              cssClass: "apexcharts-xaxis-title",
             },
           },
         },
         yaxis: {
           tickAmount: 7,
+          labels: {
+            style: {
+              colors: [
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+              ],
+            },
+          },
+          title: {
+            text: "Width Of The Road",
+            offsetX: 0,
+            offsetY: 0,
+            style: {
+              color: "#E4E6E9",
+              fontSize: "12px",
+              fontFamily: "Helvetica, Arial, sans-serif",
+              fontWeight: 600,
+              cssClass: "apexcharts-xaxis-title",
+            },
+          },
+        },
+        legend: {
+          show: true,
+          position: "bottom",
+          labels: {
+            colors: ["#E4E6E9"],
+            useSeriesColors: false,
+          },
         },
       },
     };

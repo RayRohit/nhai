@@ -23,7 +23,10 @@ export function GlobalState(props) {
     US: true,
     upload: false,
     comparisonVideo: undefined,
-    comparisonjson:null
+    comparisonjson:null,
+    maintanancejson:null,
+    maintananceVideo:undefined,
+    maintananceUpload : false
   });
 
   useEffect(() => {
@@ -73,6 +76,28 @@ export function GlobalState(props) {
       console.log(e);
     }
   }, [state.comparisonVideo]);
+  useEffect(() => {
+    try {
+      const formdata = new FormData();
+      formdata.append("videos", state.maintananceVideo);
+      console.log(formdata.get("videos"), "formdata");
+      axios
+        .post("http://209.209.41.154:5002/maintenancevideo", formdata, {
+          "Content-Type": "multipart/form-data",
+        })
+        .then((res) => {
+          console.log(res.data)
+          setState({
+            ...state,
+            maintananceUpload: false,
+            maintanancejson:res.data
+          });
+        })
+        .catch((err) => console.log(err));
+    } catch (e) {
+      console.log(e);
+    }
+  }, [state.maintananceVideo]);
 
   return (
     <>

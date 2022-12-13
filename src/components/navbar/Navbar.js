@@ -268,8 +268,7 @@ const Navbar = () => {
                   </>
                 ) : (
                   <>
-                    {location.pathname === "/comparisionanalysis" ||
-                    location.pathname === "/maintenanceanalysis" ? (
+                    {location.pathname === "/comparisionanalysis" ? (
                       <>
                         <Box
                           sx={{
@@ -292,9 +291,9 @@ const Navbar = () => {
                               onChange={(e) => {
                                 setState({
                                   ...state,
-                                  upload : true,
-                                  comparisonVideo:e.target.files[0]
-                                })
+                                  upload: true,
+                                  comparisonVideo: e.target.files[0],
+                                });
                               }}
                             />
                           </Button>
@@ -302,16 +301,52 @@ const Navbar = () => {
                       </>
                     ) : (
                       <>
-                        <Typography
-                          variant="h5"
-                          sx={{ fontWeight: "bold", color: "black" }}
-                        >
-                          {title}
-                        </Typography>
+                        {location.pathname === "/maintenanceanalysis" ? (
+                          <>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                ml: "auto",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Button
+                                variant="contained"
+                                component="label"
+                                size="medium"
+                                // sx={{ px: 3, mx: 1 }}
+                              >
+                                Upload File
+                                <input
+                                  type="file"
+                                  hidden
+                                  accept="video/*,.mkv"
+                                  onChange={(e) => {
+                                    setState({
+                                      ...state,
+                                      maintananceUpload: true,
+                                      maintananceVideo: e.target.files[0],
+                                    });
+                                  }}
+                                />
+                              </Button>
+                            </Box>
+                          </>
+                        ) : (
+                          <>
+                            <Typography
+                              variant="h5"
+                              sx={{ fontWeight: "bold", color: "black" }}
+                            >
+                              {title}
+                            </Typography>
+                          </>
+                        )}
                       </>
                     )}
                   </>
                 )}
+
                 {/* </Paper> */}
               </>
             )}
@@ -397,9 +432,20 @@ const Navbar = () => {
               <Route path="highwayprogress" element={<HighwayProgress />} />
               <Route
                 path="comparisionanalysis"
-                element={state.upload ? null : <Comparision />}
+                element={
+                  state.comparisonjson === null ? null : state.upload ? null : (
+                    <Comparision />
+                  )
+                }
               />
-              <Route path="maintenanceanalysis" element={<Maintenance />} />
+              <Route
+                path="maintenanceanalysis"
+                element={
+                  state.comparisonjson === null ? null : state.upload ? null : (
+                    <Maintenance />
+                  )
+                }
+              />
             </Routes>
           </Box>
         </Container>
