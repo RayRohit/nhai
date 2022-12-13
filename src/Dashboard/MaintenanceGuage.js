@@ -3,9 +3,9 @@ import ReactApexChart from "react-apexcharts";
 export default class MaintainanceGuage extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log(props.graphdata)
     this.state = {
-      series: [78],
+      series: [props.graphdata.Saftey_Index.Final_Saftey_Value],
       options: {
         chart: {
           type: "radialBar",

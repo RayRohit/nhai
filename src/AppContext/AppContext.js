@@ -23,77 +23,91 @@ export function GlobalState(props) {
     US: true,
     upload: false,
     comparisonVideo: undefined,
-    comparisonjson:null,
-    maintanancejson:null,
-    maintananceVideo:undefined,
-    maintananceUpload : false
+    comparisonjson: null,
+    maintanancejson: localStorage.getItem("videoData1") === undefined ? null: JSON.parse(localStorage.getItem("videoData1")),
+    maintananceVideo: undefined,
+    maintananceUpload: false,
   });
 
   useEffect(() => {
     try {
-      const formdata = new FormData();
-      formdata.append("videos", state.comparisonVideo);
-      console.log(formdata.get("videos"), "formdata");
-      // var interval;
-      // const options = {
-      //   onUploadProgress: (ProgressEvent) => {
-      //     const { loaded, total } = ProgressEvent;
-      //     let percentage = Math.floor((loaded * 100) / total);
-      //     if (percentage < 100) {
-      //       setPercent(percentage);
-      //     }
-      //     if (percentage === 100) {
-      //       setProgressBarMsg("Processing video");
-      //       setPercent(1);
-      //       var i = 0;
-      //       interval = setInterval(() => {
-      //         i = i + 5;
-      //         if (i < 100) {
-      //           setPercent(i);
-      //         }
-      //       }, 18000);
-      //     }
-      //   },
-      // };
-      axios
-        .post("http://209.209.41.154:5002/comparisonvideo", formdata, {
-          "Content-Type": "multipart/form-data",
-        })
-        .then((res) => {
-          setState({
-            ...state,
-            upload: false,
-            comparisonjson:res.data
-          });
-          // setVideoData(res.data);
-          // setPercent(100);
-          // clearInterval(interval);
-          // setProgressBarMsg("");
-          // localStorage.setItem("videoData2", JSON.stringify(res.data));
-        })
-        .catch((err) => console.log(err));
+      console.log("comparison => ", state.comparisonVideo);
+      if (state.comparisonVideo !== undefined) {
+        const formdata = new FormData();
+        formdata.append("videos", state.comparisonVideo);
+        console.log(formdata.get("videos"), "formdata");
+        // var interval;
+        // const options = {
+        //   onUploadProgress: (ProgressEvent) => {
+        //     const { loaded, total } = ProgressEvent;
+        //     let percentage = Math.floor((loaded * 100) / total);
+        //     if (percentage < 100) {
+        //       setPercent(percentage);
+        //     }
+        //     if (percentage === 100) {
+        //       setProgressBarMsg("Processing video");
+        //       setPercent(1);
+        //       var i = 0;
+        //       interval = setInterval(() => {
+        //         i = i + 5;
+        //         if (i < 100) {
+        //           setPercent(i);
+        //         }
+        //       }, 18000);
+        //     }
+        //   },
+        // };
+        axios
+          .post("http://209.209.41.154:5002/comparisonvideo", formdata, {
+            "Content-Type": "multipart/form-data",
+          })
+          .then((res) => {
+            setState({
+              ...state,
+              comparisonVideo: undefined,
+              upload: false,
+              comparisonjson: res.data,
+            });
+            // setVideoData(res.data);
+            // setPercent(100);
+            // clearInterval(interval);
+            // setProgressBarMsg("");
+            // localStorage.setItem("videoData2", JSON.stringify(res.data));
+          })
+          .catch((err) => console.log(err));
+      }
     } catch (e) {
       console.log(e);
     }
   }, [state.comparisonVideo]);
+
   useEffect(() => {
     try {
-      const formdata = new FormData();
-      formdata.append("videos", state.maintananceVideo);
-      console.log(formdata.get("videos"), "formdata");
-      axios
-        .post("http://209.209.41.154:5002/maintenancevideo", formdata, {
-          "Content-Type": "multipart/form-data",
-        })
-        .then((res) => {
-          console.log(res.data)
-          setState({
-            ...state,
-            maintananceUpload: false,
-            maintanancejson:res.data
-          });
-        })
-        .catch((err) => console.log(err));
+      console.log("maintenance => ", state.maintananceVideo);
+      setState({
+        ...state,
+        maintananceVideo: undefined,
+      });
+      if (state.maintananceVideo !== undefined) {
+        const formdata = new FormData();
+        formdata.append("videos", state.maintananceVideo);
+        console.log(formdata.get("videos"), "formdata");
+        axios
+          .post("http://209.209.41.154:5002/maintenancevideo", formdata, {
+            "Content-Type": "multipart/form-data",
+          })
+          .then((res) => {
+            console.log(res.data);
+            localStorage.setItem("videoData1", JSON.stringify(res.data));
+            setState({
+              ...state,
+              maintananceVideo: undefined,
+              maintananceUpload: false,
+              maintanancejson: res.data,
+            });
+          })
+          .catch((err) => console.log(err));
+      }
     } catch (e) {
       console.log(e);
     }

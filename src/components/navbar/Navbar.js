@@ -50,6 +50,7 @@ import HighwayProgress from "../../Dashboard/HighwayProgress";
 import Comparision from "../../Dashboard/Comparision";
 import Maintenance from "../../Dashboard/Maintenance";
 import { AppContext } from "../../AppContext/AppContext";
+import ProgressBar from "../../Dashboard/ProgressBar";
 
 const drawerWidth = 240;
 
@@ -420,6 +421,7 @@ const Navbar = () => {
           }}
         >
           <Toolbar /> */}
+          { console.log(state) }
         <Container maxWidth="100vw" sx={{ pt: 11 }}>
           <Box sx={{ py: 5 }}>
             <Routes>
@@ -433,7 +435,7 @@ const Navbar = () => {
               <Route
                 path="comparisionanalysis"
                 element={
-                  state.comparisonjson === null ? null : state.upload ? null : (
+                  state.comparisonjson === null ? null : state.upload ? <ProgressBar /> : (
                     <Comparision />
                   )
                 }
@@ -441,7 +443,7 @@ const Navbar = () => {
               <Route
                 path="maintenanceanalysis"
                 element={
-                  state.comparisonjson === null ? null : state.upload ? null : (
+                  state.maintanancejson === null ? null : state.maintananceUpload ? <ProgressBar /> : (
                     <Maintenance />
                   )
                 }

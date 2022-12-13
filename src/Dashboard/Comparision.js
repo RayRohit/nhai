@@ -28,7 +28,7 @@ export default function Comparision() {
             sx={{ fontWeight: "bolder" }}
           >
             Comparison Analysis Summary of
-            "Static/Uploads/Comparisonvideo/Comparison"
+            "Comparision"
           </Typography>
           <Typography variant="p" color="#969ea9" sx={{ fontWeight: "14px" }}>
             <i>

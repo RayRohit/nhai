@@ -3,9 +3,15 @@ import ReactApexChart from "react-apexcharts";
 export default class MaintainancePie extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log(props.graphdata);
     this.state = {
-      series: [44, 55, 41, 17, 15],
+      series: [
+        props.graphdata.Saftey_Index.blur_lines_points,
+        props.graphdata.Saftey_Index.patch_work_points,
+        props.graphdata.Saftey_Index.cracks_potholes_points,
+        props.graphdata.Saftey_Index.traffic_cones_points,
+        props.graphdata.Saftey_Index.road_stains_points,
+      ],
       options: {
         chart: {
           type: "donut",
