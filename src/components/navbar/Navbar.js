@@ -33,6 +33,7 @@ import {
   Button,
   FormControl,
   Grid,
+  Input,
   InputLabel,
   MenuItem,
   Paper,
@@ -48,6 +49,7 @@ import HighwayStrength from "../../Dashboard/HighwayStrength";
 import HighwayProgress from "../../Dashboard/HighwayProgress";
 import Comparision from "../../Dashboard/Comparision";
 import Maintenance from "../../Dashboard/Maintenance";
+import { AppContext } from "../../AppContext/AppContext";
 
 const drawerWidth = 240;
 
@@ -161,6 +163,9 @@ const Navbar = () => {
       setTitle("");
     }
   }, [location.pathname]);
+
+  const { state, setState } = React.useContext(AppContext);
+
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: "flex", background: "#F6F8FA" }}>
@@ -275,14 +280,23 @@ const Navbar = () => {
                         >
                           <Button
                             variant="contained"
-                            sx={{
-                              m: 3,
-                              py: 2,
-                              borderRadius: "10px",
-                              fontWeight: "bolder",
-                            }}
+                            component="label"
+                            size="medium"
+                            // sx={{ px: 3, mx: 1 }}
                           >
-                            Upload Video
+                            Upload File
+                            <input
+                              type="file"
+                              hidden
+                              accept="video/*,.mkv"
+                              onChange={(e) => {
+                                setState({
+                                  ...state,
+                                  upload : true,
+                                  comparisonVideo:e.target.files[0]
+                                })
+                              }}
+                            />
                           </Button>
                         </Box>
                       </>
@@ -381,7 +395,10 @@ const Navbar = () => {
               <Route path="user-services" element={<UserServices />} />
               <Route path="phonebookcontacts" element={<HighwayStrength />} />
               <Route path="highwayprogress" element={<HighwayProgress />} />
-              <Route path="comparisionanalysis" element={<Comparision />} />
+              <Route
+                path="comparisionanalysis"
+                element={state.upload ? null : <Comparision />}
+              />
               <Route path="maintenanceanalysis" element={<Maintenance />} />
             </Routes>
           </Box>

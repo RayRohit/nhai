@@ -5,7 +5,21 @@ export default class CompPie extends React.Component {
     super(props);
 
     this.state = {
-      series: [44, 55, 41, 17, 15],
+      series: props.previous
+        ? [
+            props.graphdata?.Left.Blur_Lines,
+            props.graphdata?.Left.Patch_Work,
+            props.graphdata?.Left.Cracks_and_Potholes,
+            props.graphdata?.Left.Traffic_Cones,
+            props.graphdata?.Left.Road_Markings,
+          ]
+        : [
+          props.graphdata?.Right.Blur_Lines,
+          props.graphdata?.Right.Patch_Work,
+          props.graphdata?.Right.Cracks_and_Potholes,
+          props.graphdata?.Right.Traffic_Cones,
+          props.graphdata?.Right.Road_Markings,
+        ],
       options: {
         chart: {
           type: "donut",
@@ -20,7 +34,13 @@ export default class CompPie extends React.Component {
             },
           },
         ],
-        labels: ["Blured Lanes", "Patch Works","Craks and Patholes","Traffic Cones","Road Stains"],
+        labels: [
+          "Blured Lanes",
+          "Patch Works",
+          "Craks and Patholes",
+          "Traffic Cones",
+          "Road Stains",
+        ],
         legend: {
           position: "top",
           fontSize: "12px",

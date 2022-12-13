@@ -3,14 +3,28 @@ import ReactApexChart from "react-apexcharts";
 export default class ComparisionGraph extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log(props.graphdata);
     this.state = {
       series: [
         {
-          data: [44, 55, 41, 64, 22],
+          name: "Previous",
+          data: [
+            props.graphdata?.Left.Blur_Lines,
+            props.graphdata?.Left.Patch_Work,
+            props.graphdata?.Left.Cracks_and_Potholes,
+            props.graphdata?.Left.Traffic_Cones,
+            props.graphdata?.Left.Road_Markings,
+          ],
         },
         {
-          data: [53, 32, 33, 52, 13],
+          name: "Current",
+          data: [
+            props.graphdata?.Right.Blur_Lines,
+            props.graphdata?.Right.Patch_Work,
+            props.graphdata?.Right.Cracks_and_Potholes,
+            props.graphdata?.Right.Traffic_Cones,
+            props.graphdata?.Right.Road_Markings,
+          ],
         },
       ],
       options: {
@@ -44,25 +58,47 @@ export default class ComparisionGraph extends React.Component {
           intersect: false,
         },
         xaxis: {
-          categories: ["Blur_Lines","Patch_Works", "Craks_Potholes", "Traffic_Cones", "Road_Markings"],
-          labels:{
-            style:{
-                colors:["#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9",]
-            }
-          }
+          categories: [
+            "Blur_Lines",
+            "Patch_Works",
+            "Craks_Potholes",
+            "Traffic_Cones",
+            "Road_Markings",
+          ],
+          labels: {
+            style: {
+              colors: [
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+              ],
+            },
+          },
         },
         yaxis: {
-            labels:{
-              style:{
-                  colors:["#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9","#E4E6E9",]
-              }
-            }
+          labels: {
+            style: {
+              colors: [
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+                "#E4E6E9",
+              ],
+            },
           },
-        legend:{
-            labels:{
-                colors:["#E4E6E9"]
-            }
-        }
+        },
+        legend: {
+          labels: {
+            colors: ["#E4E6E9"],
+          },
+        },
       },
     };
   }

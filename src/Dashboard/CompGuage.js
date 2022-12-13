@@ -1,14 +1,14 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
-export default class CompGuage extends React.Component {
+export default class CompGuage extends React.Component { 
   constructor(props) {
     super(props);
-
+    console.log(props)
     this.state = {
-      series: [100],
+      series: props.previous ? [props.graphdata?.Left.RSI_Left] : [props.graphdata?.Right.RSI_Right] ,
       options: {
         chart: {
-          type: "radialBar",
+          type: "radialBar", 
           // offsetY: 0,
           // offsetX: 50,
           // sparkline: {
