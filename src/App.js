@@ -1,16 +1,12 @@
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
-
+import Upload from "./Dashboard/Upload";
 
 function App() {
   return (
     <div className="App">
-      {/* <Compare /> */}
       <Navbar />
-      {/* <Modall /> */}
-      {/* <MaintainancePie /> */}
-      {/* <CompPie /> */}
-      {/* <HighwayProgress /> */}
+      {/* <Upload /> */}
     </div>
   );
 }

@@ -67,7 +67,7 @@ export const MainListItems = ({ open }) => {
         {open ? (
           <div>
             <NavLink
-              to="mycontact"
+              // to="highway-rating"
               className="text-white sidebarStyle "
               onClick={handleClick}
             >
@@ -91,7 +91,7 @@ export const MainListItems = ({ open }) => {
                 {open ? (
                   <div>
                     <NavLink
-                      to="highwayCondition"
+                      // to="highwayCondition"
                       className="text-white sidebarStyle "
                       onClick={handleClickkk}
                     >
@@ -150,7 +150,7 @@ export const MainListItems = ({ open }) => {
                       }}
                       sx={{ ml: 7, mt: -6 }}
                     >
-                      <Link to="mycontacts" className="link_style text-black">
+                      <Link  className="link_style text-black">
                         <MenuItem
                           onClick={(event) => handleMenuItemClick(event)}
                         >
@@ -248,7 +248,7 @@ export const MainListItems = ({ open }) => {
         {open ? (
           <div>
             <NavLink
-              to="construction"
+              // to="highwayprogress"
               className="text-white sidebarStyle"
               onClick={handleClickk}
             >

@@ -24,9 +24,10 @@ export function GlobalState(props) {
     upload: false,
     comparisonVideo: undefined,
     comparisonjson: null,
-    maintanancejson: localStorage.getItem("videoData1") === undefined ? null: JSON.parse(localStorage.getItem("videoData1")),
+    maintanancejson: null,
     maintananceVideo: undefined,
     maintananceUpload: false,
+    visibility : "hidden"
   });
 
   useEffect(() => {
@@ -66,6 +67,7 @@ export function GlobalState(props) {
               ...state,
               comparisonVideo: undefined,
               upload: false,
+              visibility:'hidden',
               comparisonjson: res.data,
             });
             // setVideoData(res.data);
@@ -103,10 +105,19 @@ export function GlobalState(props) {
               ...state,
               maintananceVideo: undefined,
               maintananceUpload: false,
+              visibility:'hidden',
               maintanancejson: res.data,
             });
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            console.log(err)
+            setState({
+              ...state,
+              maintananceVideo: undefined,
+              maintananceUpload: false,
+              // maintanancejson: res.data,
+            });
+          });
       }
     } catch (e) {
       console.log(e);

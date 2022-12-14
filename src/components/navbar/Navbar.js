@@ -51,6 +51,7 @@ import Comparision from "../../Dashboard/Comparision";
 import Maintenance from "../../Dashboard/Maintenance";
 import { AppContext } from "../../AppContext/AppContext";
 import ProgressBar from "../../Dashboard/ProgressBar";
+import Upload from "../../Dashboard/Upload";
 
 const drawerWidth = 240;
 
@@ -97,7 +98,7 @@ const Drawer = styled(MuiDrawer, {
     whiteSpace: "nowrap",
     width: drawerWidth,
     color: "#FFFFFF",
-    backgroundColor: "#123073",
+    backgroundColor: "#273143",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -282,7 +283,7 @@ const Navbar = () => {
                             variant="contained"
                             component="label"
                             size="medium"
-                            // sx={{ px: 3, mx: 1 }}
+                            sx={{ display: "none" }}
                           >
                             Upload File
                             <input
@@ -315,6 +316,8 @@ const Navbar = () => {
                                 variant="contained"
                                 component="label"
                                 size="medium"
+                                sx={{ display: "none" }}
+
                                 // sx={{ px: 3, mx: 1 }}
                               >
                                 Upload File
@@ -368,10 +371,16 @@ const Navbar = () => {
         </AppBar>
 
         <Drawer variant="permanent" open={open}>
-          <Toolbar>
+          <Toolbar
+            sx={{
+              backgroundColor: "white !important",
+              height: "93px !important",
+              color: "white",
+            }}
+          >
             <div
               className="logoWrapper"
-              sx={{ background: "#fff", height: "93px" }}
+              sx={{ backgroundColor: "#ffffff", height: "93px" }}
             >
               <img
                 className="logo"
@@ -421,7 +430,7 @@ const Navbar = () => {
           }}
         >
           <Toolbar /> */}
-          { console.log(state) }
+        {console.log(state)}
         <Container maxWidth="100vw" sx={{ pt: 11 }}>
           <Box sx={{ py: 5 }}>
             <Routes>
@@ -435,7 +444,9 @@ const Navbar = () => {
               <Route
                 path="comparisionanalysis"
                 element={
-                  state.comparisonjson === null ? null : state.upload ? <ProgressBar /> : (
+                  state.comparisonjson === null ? (
+                    <Upload status="comparison" />
+                  ) : (
                     <Comparision />
                   )
                 }
@@ -443,7 +454,9 @@ const Navbar = () => {
               <Route
                 path="maintenanceanalysis"
                 element={
-                  state.maintanancejson === null ? null : state.maintananceUpload ? <ProgressBar /> : (
+                  state.maintanancejson === null ? (
+                    <Upload status="maintenance" />
+                  ) : (
                     <Maintenance />
                   )
                 }

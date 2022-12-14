@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import LinearProgress from "@mui/material/LinearProgress";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { AppContext } from "../AppContext/AppContext";
 
 function LinearProgressWithLabel(props) {
   return (
@@ -29,21 +30,29 @@ LinearProgressWithLabel.propTypes = {
 
 export default function ProgressBar() {
   const [progress, setProgress] = React.useState(10);
+  const { state } = React.useContext(AppContext);
+  const [Interval, setNewInterval] = React.useState(0);
 
   React.useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prevProgress) =>
-        prevProgress >= 100 ? 10 : prevProgress + 10
-      );
-    }, 800);
-    return () => {
-      clearInterval(timer);
-    };
+    let Interval = setInterval(() => {
+      setProgress((prevProgress) => prevProgress + 10);
+    }, 1000);
+    setNewInterval(Interval);
   }, []);
 
+  React.useEffect(() => {
+    if (progress === 100) {
+      clearInterval(Interval);
+    }
+  }, [progress]);
+
   return (
-    <Box sx={{ width: "100%" }}>
-      <LinearProgressWithLabel value={progress} />
+    <Box sx={{ width: "100%", visibility: `${state.visibility}` }}>
+      {progress === 100 ? (
+        <h6>Analysing Video !</h6>
+      ) : (
+        <LinearProgressWithLabel value={progress} />
+      )}
     </Box>
   );
 }

@@ -8,7 +8,7 @@
   background-color: #273143 !important;
 }
 .css-n7rtur-MuiPaper-root-MuiAppBar-root {
-  width: calc(100% - 293px) !important;
+  /* width: calc(100% - 293px) !important; */
 }
 .css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root {
   padding-right: 14px !important;
@@ -36,9 +36,8 @@
   background-color: #fff !important;
   height: 93px !important;
 }
-.css-1qs9b80-MuiToolbar-root{
+.css-1qs9b80-MuiToolbar-root {
   background-color: #fff !important;
-
 }
 /* .css-10mty7c-MuiToolbar-root {
   background: #2986CE !important;
@@ -83,6 +82,10 @@
   height: 90vh;
 }
 
+.MuiDrawer-paper {
+  background: #273143 !important;
+}
+
 .css-17ne8ot-MuiDrawer-docked .MuiDrawer-paper {
   background: #273143 !important;
 }
@@ -94,7 +97,7 @@
 .logoWrapper {
   height: 93px !important;
   z-index: 99;
-  /* background: #fff !important; */
+  background: #ffffff !important;
 }
 .icon {
   padding: 0px !important;
