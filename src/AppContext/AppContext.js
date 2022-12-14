@@ -27,7 +27,8 @@ export function GlobalState(props) {
     maintanancejson: null,
     maintananceVideo: undefined,
     maintananceUpload: false,
-    visibility : "hidden"
+    visibility : "hidden",
+    mainvisibility: "hidden"
   });
 
   useEffect(() => {
@@ -86,14 +87,20 @@ export function GlobalState(props) {
   useEffect(() => {
     try {
       console.log("maintenance => ", state.maintananceVideo);
-      setState({
-        ...state,
-        maintananceVideo: undefined,
-      });
+      // setState({
+      //   ...state,
+      //   maintananceVideo: undefined,
+      // });
       if (state.maintananceVideo !== undefined) {
         const formdata = new FormData();
         formdata.append("videos", state.maintananceVideo);
         console.log(formdata.get("videos"), "formdata");
+        // setTimeout(() => {
+        //   setState({
+        //     ...state,
+        //     mainvisibility:"hidden"
+        //   })
+        // },3000)
         axios
           .post("http://209.209.41.154:5002/maintenancevideo", formdata, {
             "Content-Type": "multipart/form-data",
@@ -105,7 +112,7 @@ export function GlobalState(props) {
               ...state,
               maintananceVideo: undefined,
               maintananceUpload: false,
-              visibility:'hidden',
+              mainvisibility:'hidden',
               maintanancejson: res.data,
             });
           })

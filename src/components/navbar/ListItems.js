@@ -6,6 +6,9 @@ import List from "@mui/material/List";
 import Collapse from "@mui/material/Collapse";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import opmain from '../../Assests/Images/opmain.png'
+import opcons from '../../Assests/Images/opcons.png'
+import highwaycon from '../../Assests/Images/highwaycon.png'
 import {
   Preferences,
   Actions,
@@ -71,7 +74,7 @@ export const MainListItems = ({ open }) => {
               className="text-white sidebarStyle "
               onClick={handleClick}
             >
-              <img className="sidebar-icons" src={Contacts} alt="Contacts" />
+              <img className="sidebar-icons" src={opmain} alt="Contacts"  />
               Operations & <br /> Maintenance
             </NavLink>
             <Collapse in={copen} timeout="auto" unmountOnExit>
@@ -97,7 +100,7 @@ export const MainListItems = ({ open }) => {
                     >
                       <img
                         className="sidebar-icons"
-                        src={Contacts}
+                        src={highwaycon}
                         alt="Contacts"
                       />
                       Highway <br /> Conditions
@@ -252,7 +255,7 @@ export const MainListItems = ({ open }) => {
               className="text-white sidebarStyle"
               onClick={handleClickk}
             >
-              <img className="sidebar-icons" src={Contacts} alt="Contacts" />
+              <img className="sidebar-icons" src={opcons} alt="Contacts" />
               Operations & <br /> Construction
             </NavLink>
             <Collapse in={dopen} timeout="auto" unmountOnExit>

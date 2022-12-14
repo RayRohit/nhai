@@ -4,6 +4,7 @@ import { Box, Paper, Typography } from "@mui/material";
 import upload from "../Assests/Images/uploadd.png";
 import { AppContext } from "../AppContext/AppContext";
 import ProgressBar from "./ProgressBar";
+import MainProgressBar from "./MainProgressBar";
 
 const fileTypes = ["MP4"];
 
@@ -22,12 +23,14 @@ export default function Upload(props) {
           comparisonVideo: file[0],
           visibility:"visible"
         });
+        setFile(null)
       } else {
         setState({
           ...state,
           maintananceVideo: file[0],
-          visibility:"visible"
+          mainvisibility:"visible"
         });
+        setFile(null)
       }
     }
   }, [file]);
@@ -71,9 +74,9 @@ export default function Upload(props) {
           />
         </Box>
         <p style={{ textAlign: "center" }}>
-          {file ? `File name: ${file[0].name}` : "No Files Uploaded Yet"}
+          {/* {file ? `File name: ${file[0].name}` : "No Files Uploaded Yet"} */}
         </p>{" "}
-        <ProgressBar />
+        {props.status === "comparison" ? <ProgressBar /> : <MainProgressBar />}
       </Paper>
 
       {/* <h1>Hello To Drag & Drop Files</h1>

@@ -9,14 +9,10 @@ function LinearProgressWithLabel(props) {
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Box sx={{ width: "100%", mr: 1 }}>
-        <LinearProgress
-          variant="determinate"
-          {...props}
-          sx={{ py: 0.8, borderRadius: "20px" }}
-        />
+        <LinearProgress variant="determinate" {...props} sx={{py:0.8,borderRadius:'20px'}} />
       </Box>
       <Box sx={{ minWidth: 35 }}>
-        <Typography variant="body2" sx={{ color: "#e4e6e9" }}>{`${Math.round(
+        <Typography variant="body2" sx={{color:"#e4e6e9"}}>{`${Math.round(
           props.value
         )}%`}</Typography>
       </Box>
@@ -32,30 +28,28 @@ LinearProgressWithLabel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-export default function ProgressBar() {
+export default function MainProgressBar() {
   const [progress, setProgress] = React.useState(10);
   const { state } = React.useContext(AppContext);
   const [Interval, setNewInterval] = React.useState(0);
 
   React.useEffect(() => {
-    // if (state.comparisonVideo !== undefined) {
-    let Interval = setInterval(() => {
-      setProgress((prevProgress) => prevProgress + 10);
-    }, 2000);
-    setNewInterval(Interval);
+    // if (state.maintananceVideo !== undefined) {
+      let Interval = setInterval(() => {
+        setProgress((prevProgress) => prevProgress + 10);
+      }, 2000);
+      setNewInterval(Interval);
     // }
   }, []);
 
   React.useEffect(() => {
-    if (progress === 100) {
-      clearInterval(Interval);
-    }
+    if (progress === 100) clearInterval(Interval);
   }, [progress]);
 
   return (
-    <Box sx={{ width: "100%", visibility: `${state.visibility}` }}>
+    <Box sx={{ width: "100%", visibility: `${state.mainvisibility}`, }}>
       {progress === 100 ? (
-        <h6>Analysing Video !</h6>
+        <h5>Analysing Video !</h5>
       ) : (
         <LinearProgressWithLabel value={progress} />
       )}
