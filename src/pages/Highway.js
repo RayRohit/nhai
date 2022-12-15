@@ -139,7 +139,7 @@ const Highway = () => {
     if (threeDMapDiv.current) {
       const layer = new FeatureLayer({
         portalItem: {
-          id: "9447b883e8564fc3bf1993736d07884a",
+          id: "c4c875ebcb224536b82cb506e8b75e7e",
         },
         popupEnabled: true,
       });
