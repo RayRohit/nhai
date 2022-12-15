@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { AppContext } from "../AppContext/AppContext";
 import LinearProgres from "./LinearProgress";
+import AnalyseProgress from "./AnalyseProgress";
 
 function LinearProgressWithLabel(props) {
   return (
@@ -17,9 +18,9 @@ function LinearProgressWithLabel(props) {
         />
       </Box>
       <Box sx={{ minWidth: 35 }}>
-        <Typography variant="body2" sx={{ color: "#e4e6e9" }}>Uploading&nbsp;&nbsp;{`${Math.round(
-          props.value
-        )}%`}</Typography>
+        <Typography variant="body2" sx={{ color: "#e4e6e9" }}>
+          Uploading&nbsp;&nbsp;{`${Math.round(props.value)}%`}
+        </Typography>
       </Box>
     </Box>
   );
@@ -56,9 +57,9 @@ export default function MainProgressBar() {
       {progress === 100 ? (
         <>
           <LinearProgres />
-          <h5 style={{ textAlign: "center", fontSize: "20px" }}>
+          {/* <h5 style={{ textAlign: "center", fontSize: "20px" }}>
             Analysing Video...!
-          </h5>
+          </h5> */}
         </>
       ) : (
         <LinearProgressWithLabel value={progress} />
