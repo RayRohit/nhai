@@ -6,9 +6,9 @@ import List from "@mui/material/List";
 import Collapse from "@mui/material/Collapse";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import opmain from '../../Assests/Images/opmain.png'
-import opcons from '../../Assests/Images/opcons.png'
-import highwaycon from '../../Assests/Images/highwaycon.png'
+import opmain from "../../Assests/Images/opmain.png";
+import opcons from "../../Assests/Images/opcons.png";
+import highwaycon from "../../Assests/Images/highwaycon.png";
 import {
   Preferences,
   Actions,
@@ -57,7 +57,6 @@ export const MainListItems = ({ open }) => {
   const handleClickkk = () => {
     setEopen(!eopen);
   };
-  
 
   return (
     <div className="listContainer">
@@ -74,7 +73,7 @@ export const MainListItems = ({ open }) => {
               className="text-white sidebarStyle "
               onClick={handleClick}
             >
-              <img className="sidebar-icons" src={opmain} alt="Contacts"  />
+              <img className="sidebar-icons" src={opmain} alt="Contacts" />
               Operations & <br /> Maintenance
             </NavLink>
             <Collapse in={copen} timeout="auto" unmountOnExit>
@@ -114,16 +113,19 @@ export const MainListItems = ({ open }) => {
                         {/* <NavLink to="mycontacts" className="collapseStyle">
                   Highway Conditions
                 </NavLink> */}
-                        <NavLink to="maintenanceanalysis" className="collapseStyle">
+                        <NavLink
+                          to="maintenanceanalysis"
+                          className="collapseStyle"
+                        >
                           Maintenance <br /> Analysis
                         </NavLink>
                         <NavLink
                           to="comparisionanalysis"
                           className="collapseStyle"
                         >
-                          Comparision <br /> Analysis 
+                          Comparision <br /> Analysis
                         </NavLink>
-                        
+
                         {/* <NavLink to="highwayprogress" className="collapseStyle">
                   Highway Progress
                 </NavLink> */}
@@ -153,7 +155,7 @@ export const MainListItems = ({ open }) => {
                       }}
                       sx={{ ml: 7, mt: -6 }}
                     >
-                      <Link  className="link_style text-black">
+                      <Link className="link_style text-black">
                         <MenuItem
                           onClick={(event) => handleMenuItemClick(event)}
                         >
@@ -293,6 +295,7 @@ export const MainListItems = ({ open }) => {
             </Menu>
           </div>
         )}
+        
 
         {/* <NavLink to="mycardpage" className="text-white sidebarStyle">
                     <img className="sidebar-icons" src={MyCard} alt="MyCard" />

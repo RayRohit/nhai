@@ -49,7 +49,8 @@ export default function Upload(props) {
           p: 2,
           borderRadius: "10px",
           color: "#E4E6E9",
-          width: "50vw",
+          width: "75vw",
+          height:"60vh",py:5
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "center", pt: 2 }}>

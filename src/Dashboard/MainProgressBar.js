@@ -4,15 +4,20 @@ import LinearProgress from "@mui/material/LinearProgress";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { AppContext } from "../AppContext/AppContext";
+import LinearProgres from "./LinearProgress";
 
 function LinearProgressWithLabel(props) {
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Box sx={{ width: "100%", mr: 1 }}>
-        <LinearProgress variant="determinate" {...props} sx={{py:0.8,borderRadius:'20px'}} />
+        <LinearProgress
+          variant="determinate"
+          {...props}
+          sx={{ py: 0.8, borderRadius: "20px" }}
+        />
       </Box>
       <Box sx={{ minWidth: 35 }}>
-        <Typography variant="body2" sx={{color:"#e4e6e9"}}>{`${Math.round(
+        <Typography variant="body2" sx={{ color: "#e4e6e9" }}>Uploading&nbsp;&nbsp;{`${Math.round(
           props.value
         )}%`}</Typography>
       </Box>
@@ -35,10 +40,10 @@ export default function MainProgressBar() {
 
   React.useEffect(() => {
     // if (state.maintananceVideo !== undefined) {
-      let Interval = setInterval(() => {
-        setProgress((prevProgress) => prevProgress + 10);
-      }, 2000);
-      setNewInterval(Interval);
+    let Interval = setInterval(() => {
+      setProgress((prevProgress) => prevProgress + 2);
+    }, 2000);
+    setNewInterval(Interval);
     // }
   }, []);
 
@@ -47,9 +52,14 @@ export default function MainProgressBar() {
   }, [progress]);
 
   return (
-    <Box sx={{ width: "100%", visibility: `${state.mainvisibility}`, }}>
+    <Box sx={{ width: "100%", visibility: `${state.mainvisibility}` }}>
       {progress === 100 ? (
-        <h5>Analysing Video !</h5>
+        <>
+          <LinearProgres />
+          <h5 style={{ textAlign: "center", fontSize: "20px" }}>
+            Analysing Video...!
+          </h5>
+        </>
       ) : (
         <LinearProgressWithLabel value={progress} />
       )}
