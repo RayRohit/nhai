@@ -21,16 +21,16 @@ export default function Upload(props) {
         setState({
           ...state,
           comparisonVideo: file[0],
-          visibility:"visible"
+          visibility: "visible",
         });
-        setFile(null)
+        setFile(null);
       } else {
         setState({
           ...state,
           maintananceVideo: file[0],
-          mainvisibility:"visible"
+          mainvisibility: "visible",
         });
-        setFile(null)
+        setFile(null);
       }
     }
   }, [file]);
@@ -50,7 +50,8 @@ export default function Upload(props) {
           borderRadius: "10px",
           color: "#E4E6E9",
           width: "75vw",
-          height:"60vh",py:5
+          height: "60vh",
+          py: 5,
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "center", pt: 2 }}>

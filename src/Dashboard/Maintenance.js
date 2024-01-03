@@ -54,9 +54,9 @@ export default function Maintenance() {
       });
     }
   }, [state.maintanancejson]);
-
+  console.log(state);
   function ModalPopUp(img) {
-    // console.log(img)
+    console.log(img);
     setImage(img);
     setOpen(true);
   }
@@ -372,7 +372,7 @@ export default function Maintenance() {
         </Typography>
         <video width="100%" controls style={{ margin: "10px 0 10px 0" }}>
           <source
-            src={`http://209.209.41.154:5002/${state.maintanancejson.Video_Name}.mp4`}
+            src={`http://209.209.41.154:5003/${state.maintanancejson.Video_Name}.mp4`}
             type="video/mp4"
           />
           <source src="movie.ogg" type="video/ogg" />
@@ -388,7 +388,7 @@ export default function Maintenance() {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            {/* <img src={`http://209.209.41.154:5002/${image}`} alt={image} width={600}  /> */}
+            {/* <img src={`http://209.209.41.154:5003/${image}`} alt={image} width={600}  /> */}
             <TransformWrapper>
               {/* <TransformComponent>
 							<img src={img} alt="test" />
@@ -426,7 +426,7 @@ export default function Maintenance() {
                   </div>
                   <TransformComponent>
                     <img
-                      src={`http://209.209.41.154:5002/${image}`}
+                      src={`http://209.209.41.154:5003/${image}`}
                       alt={image}
                       width={600}
                     />

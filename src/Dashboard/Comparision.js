@@ -27,14 +27,16 @@ export default function Comparision() {
             color="#E4E6E9"
             sx={{ fontWeight: "bolder" }}
           >
-            Comparison Analysis Summary of
-            "Comparision"
+            Comparison Analysis Summary of "Comparision"
           </Typography>
           <Typography variant="p" color="#969ea9" sx={{ fontWeight: "14px" }}>
             <i>
               Statistics for a{" "}
               {parseFloat(state.comparisonjson?.Time_of_Video / 60).toFixed(2)}{" "}
-              minutes video spanning across {parseFloat(state.comparisonjson?.Distance_Traversed / 1000).toFixed(2)}
+              minutes video spanning across{" "}
+              {parseFloat(
+                state.comparisonjson?.Distance_Traversed / 1000
+              ).toFixed(2)}
               kilometers of the national highway.
             </i>
           </Typography>
@@ -49,7 +51,7 @@ export default function Comparision() {
         }}
       >
         <Box sx={{ py: 1 }}>
-          <ComparisionGraph graphdata={state.comparisonjson} /> 
+          <ComparisionGraph graphdata={state.comparisonjson} />
         </Box>
       </Box>
       <Grid container spacing={2} sx={{ my: 1 }}>
@@ -101,10 +103,12 @@ export default function Comparision() {
                   <Typography variant="h6" sx={{ textAlign: "center" }}>
                     Fit
                   </Typography>
-                  <Typography variant="h6">{state.comparisonjson?.Left.RSI_Left} %</Typography>
+                  <Typography variant="h6">
+                    {state.comparisonjson?.Left.RSI_Left} %
+                  </Typography>
                 </Card>
                 <Box>
-                  <CompGuage previous={true} graphdata={state.comparisonjson}/> 
+                  <CompGuage previous={true} graphdata={state.comparisonjson} />
                 </Box>
                 <Card
                   sx={{
@@ -120,7 +124,7 @@ export default function Comparision() {
                     Gap
                   </Typography>
                   <Typography variant="h6" sx={{ textAlign: "center" }}>
-                  {100 - state.comparisonjson?.Left.RSI_Left} 
+                    {100 - state.comparisonjson?.Left.RSI_Left}
                   </Typography>
                 </Card>
               </Box>
@@ -175,10 +179,15 @@ export default function Comparision() {
                   <Typography variant="h6" sx={{ textAlign: "center" }}>
                     Fit
                   </Typography>
-                  <Typography variant="h6">{state.comparisonjson?.Right.RSI_Right} %</Typography>
+                  <Typography variant="h6">
+                    {state.comparisonjson?.Right.RSI_Right} %
+                  </Typography>
                 </Card>
                 <Box>
-                  <CompGuage previous={false} graphdata={state.comparisonjson} />
+                  <CompGuage
+                    previous={false}
+                    graphdata={state.comparisonjson}
+                  />
                 </Box>
                 <Card
                   sx={{
@@ -192,7 +201,9 @@ export default function Comparision() {
                   }}
                 >
                   <Typography variant="h6">Gap</Typography>
-                  <Typography variant="h6">{100 - state.comparisonjson?.Right.RSI_Right}</Typography>
+                  <Typography variant="h6">
+                    {100 - state.comparisonjson?.Right.RSI_Right}
+                  </Typography>
                 </Card>
               </Box>
             </Box>
@@ -215,15 +226,18 @@ export default function Comparision() {
                   variant="h5"
                   sx={{ color: "#e4e6e9", fontWeight: "bolder" }}
                 >
-                  Gap Analysis of <span style={{ color: "red" }}>{100 - state.comparisonjson?.Left.RSI_Left} %</span> for
-                  RQI
+                  Gap Analysis of{" "}
+                  <span style={{ color: "red" }}>
+                    {100 - state.comparisonjson?.Left.RSI_Left} %
+                  </span>{" "}
+                  for RQI
                 </Typography>
                 <Typography variant="p" sx={{ color: "#969ea9" }}>
                   Spread of paramaters contributing to RQI
                 </Typography>
                 <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
                   <Box sx={{ my: 2, width: "100%" }}>
-                    <CompPie  previous={true} graphdata={state.comparisonjson} />
+                    <CompPie previous={true} graphdata={state.comparisonjson} />
                   </Box>
                 </Box>
               </Box>
@@ -245,15 +259,21 @@ export default function Comparision() {
                   variant="h5"
                   sx={{ color: "#e4e6e9", fontWeight: "bolder" }}
                 >
-                  Gap Analysis of <span style={{ color: "red" }}>{100 - state.comparisonjson?.Right.RSI_Right}%</span> for
-                  RQI
+                  Gap Analysis of{" "}
+                  <span style={{ color: "red" }}>
+                    {100 - state.comparisonjson?.Right.RSI_Right}%
+                  </span>{" "}
+                  for RQI
                 </Typography>
                 <Typography variant="p" sx={{ color: "#969ea9" }}>
                   Spread of paramaters contributing to RQI
                 </Typography>
                 <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
                   <Box sx={{ my: 2, width: "100%" }}>
-                    <CompPie  previous={false} graphdata={state.comparisonjson} />
+                    <CompPie
+                      previous={false}
+                      graphdata={state.comparisonjson}
+                    />
                   </Box>
                 </Box>
               </Box>

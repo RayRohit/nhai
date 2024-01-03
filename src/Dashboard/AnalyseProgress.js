@@ -17,9 +17,9 @@ function LinearProgressWithLabel(props) {
         />
       </Box>
       <Box sx={{ minWidth: 35 }}>
-        <Typography variant="body2" sx={{ color: "#e4e6e9" }}>Analyzing&nbsp;&nbsp;{`${Math.round(
-          props.value
-        )}%`}</Typography>
+        <Typography variant="body2" sx={{ color: "#e4e6e9" }}>
+          Analyzing&nbsp;&nbsp;{`${Math.round(props.value)}%`}
+        </Typography>
       </Box>
     </Box>
   );
@@ -41,22 +41,21 @@ export default function AnalyseProgress() {
   React.useEffect(() => {
     // if (state.comparisonVideo !== undefined) {
     let Interval = setInterval(() => {
-      setProgress((prevProgress) => prevProgress + 10);
-    }, 2000);
+      setProgress((prevProgress) => prevProgress + 5);
+    }, 1000);
     setNewInterval(Interval);
     // }
   }, []);
 
-//   React.useEffect(() => {
-//     if (progress === 100) {
-//       clearInterval(Interval);
-//     }
-//   }, [progress]);
+  React.useEffect(() => {
+    if (progress === 95) {
+      clearInterval(Interval);
+    }
+  }, [progress]);
 
   return (
     <Box sx={{ width: "100%", visibility: `${state.visibility}` }}>
-      
-        <LinearProgressWithLabel value={progress} />
+      <LinearProgressWithLabel value={progress} />
     </Box>
   );
 }

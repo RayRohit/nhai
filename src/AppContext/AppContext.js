@@ -4,6 +4,7 @@ export const AppContext = createContext();
 
 export function GlobalState(props) {
   const [state, setState] = useState({
+    HRVideo: null,
     HEserviceRoadPeak: 0,
     HEcarriagePeak: 0,
     HEStardardMarkingPeak: 0,
@@ -27,8 +28,8 @@ export function GlobalState(props) {
     maintanancejson: null,
     maintananceVideo: undefined,
     maintananceUpload: false,
-    visibility : "hidden",
-    mainvisibility: "hidden"
+    visibility: "hidden",
+    mainvisibility: "hidden",
   });
 
   useEffect(() => {
@@ -59,25 +60,40 @@ export function GlobalState(props) {
         //     }
         //   },
         // };
-        axios
-          .post("http://209.209.41.154:5002/comparisonvideo", formdata, {
-            "Content-Type": "multipart/form-data",
-          })
-          .then((res) => {
-            setState({
-              ...state,
-              comparisonVideo: undefined,
-              upload: false,
-              visibility:'hidden',
-              comparisonjson: res.data,
-            });
-            // setVideoData(res.data);
-            // setPercent(100);
-            // clearInterval(interval);
-            // setProgressBarMsg("");
-            // localStorage.setItem("videoData2", JSON.stringify(res.data));
-          })
-          .catch((err) => console.log(err));
+        // axios
+        //   .post("http://209.209.41.154:5003/comparisonvideo", formdata, {
+        //     "Content-Type": "multipart/form-data",
+        //   })
+        //   .then((res) => {
+        //     setState({
+        //       ...state,
+        //       comparisonVideo: undefined,
+        //       upload: false,
+        //       visibility: "hidden",
+        //       // comparisonjson: res.data,
+        //     });
+        //     // setVideoData(res.data);
+        //     // setPercent(100);
+        //     // clearInterval(interval);
+        //     // setProgressBarMsg("");
+        //     localStorage.setItem("videoData2", JSON.stringify(res.data));
+        //   })
+        //   .catch((err) => console.log(err));
+        setTimeout(() => {
+          // setState((prev) => {
+          //   return {
+          //     ...prev,
+          //     HRVideo: file[0],
+          //   };
+          // });
+          setState({
+            ...state,
+            comparisonVideo: undefined,
+            upload: false,
+            visibility: "hidden",
+            comparisonjson: JSON.parse(localStorage.getItem("videoData2")),
+          });
+        }, [10000]);
       }
     } catch (e) {
       console.log(e);
@@ -102,7 +118,7 @@ export function GlobalState(props) {
         //   })
         // },3000)
         axios
-          .post("http://209.209.41.154:5002/maintenancevideo", formdata, {
+          .post("http://209.209.41.154:5003/maintenancevideo", formdata, {
             "Content-Type": "multipart/form-data",
           })
           .then((res) => {
@@ -112,12 +128,12 @@ export function GlobalState(props) {
               ...state,
               maintananceVideo: undefined,
               maintananceUpload: false,
-              mainvisibility:'hidden',
+              mainvisibility: "hidden",
               maintanancejson: res.data,
             });
           })
           .catch((err) => {
-            console.log(err)
+            console.log(err);
             setState({
               ...state,
               maintananceVideo: undefined,
@@ -125,11 +141,34 @@ export function GlobalState(props) {
               // maintanancejson: res.data,
             });
           });
+        // setTimeout(() => {
+        //   setState({
+        //     ...state,
+        //     maintananceVideo: undefined,
+        //     maintananceUpload: false,
+        //     mainvisibility: "hidden",
+        //     maintanancejson: JSON.parse(localStorage.getItem("videoData1")),
+        //   });
+        // }, [10000]);
       }
     } catch (e) {
       console.log(e);
+      setState({
+        ...state,
+        maintananceVideo: undefined,
+        maintananceUpload: false,
+        // maintanancejson: res.data,
+      });
     }
   }, [state.maintananceVideo]);
+
+  useEffect(() => {
+    try {
+      console.log("State Video =>", state?.HRVideo);
+    } catch (e) {
+      console.error(e);
+    }
+  }, [state?.HRVideo]);
 
   return (
     <>

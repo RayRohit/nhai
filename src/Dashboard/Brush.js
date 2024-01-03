@@ -10,7 +10,7 @@ export default function Brush() {
         sx={{
           background: "#273143",
           p: 2,
-          height: "315px",
+          height: "335px",
           borderRadius: "10px",
         }}
       >
@@ -22,7 +22,7 @@ export default function Brush() {
             >
               Static Elastic Modulus Curve
             </Typography>
-            <Box sx={{ ml: "auto",mb:1 }}>
+            <Box sx={{ ml: "auto", mb: 1 }}>
               <DropDown
                 label={"Static Elastic Modulus"}
                 item1={"Static Elastic Modulus"}
@@ -35,7 +35,7 @@ export default function Brush() {
             Static Elastic Modulus curve for each point on the road vs the
             experimental data available of the road.
           </Typography>
-          <Box sx={{ display: "flex", justifyContent: "space-evenly",pt:2 }}>
+          <Box sx={{ display: "flex", justifyContent: "space-evenly", pt: 2 }}>
             <Box sx={{ width: "30vw" }}>
               <BrushGraph />
             </Box>

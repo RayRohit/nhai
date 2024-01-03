@@ -52,6 +52,8 @@ import Maintenance from "../../Dashboard/Maintenance";
 import { AppContext } from "../../AppContext/AppContext";
 import ProgressBar from "../../Dashboard/ProgressBar";
 import Upload from "../../Dashboard/Upload";
+import PlantationAnalysis from "../../Dashboard/PlantationAnalysis";
+import { useEffect } from "react";
 
 const drawerWidth = 240;
 
@@ -126,19 +128,21 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 const Navbar = () => {
+  console.log("nav bar -> ");
   const location = useLocation();
   const [title, setTitle] = React.useState("NHAI Rating Analytics");
-
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
+  const fileInputRef = React.useRef(null);
   const [age, setAge] = React.useState("");
+  const [data, setData] = React.useState({ files: undefined });
+  console.log("data>>", data);
   const [one, setOne] = React.useState(false);
   const handleChange = (event) => {
     setAge(event.target.value);
   };
-
   console.info(location.pathname);
   // const title =
   //   location.pathname === "/highway"
@@ -146,7 +150,8 @@ const Navbar = () => {
   //     : "NH-05 Ludhiana Talwandi";
   // var title = ""
 
-  React.useEffect(() => {
+  useEffect(() => {
+    console.log("path", location.pathname);
     if (location.pathname === "/highway") {
       setTitle("Bhavnagar -Talaja PKG-I(6.945 to 54.990)");
     } else if (location.pathname === "/highway-rating") {
@@ -162,7 +167,11 @@ const Navbar = () => {
     } else if (location.pathname === "/phonebookcontacts") {
       setTitle("Falling Weight Deflectometer Analysis Paramaters ");
     } else if (location.pathname === "/comparisionanalysis") {
-      setTitle("");
+      setTitle("Comparison Analysis");
+    } else if (location.pathname === "/maintenanceanalysis") {
+      setTitle("Maintenance Analysis");
+    } else if (location.pathname === "/plantationAnalysis") {
+      setTitle("Plantation Analysis");
     }
   }, [location.pathname]);
 
@@ -193,7 +202,7 @@ const Navbar = () => {
                   {title}
                 </Typography>
                 {/* </Box> */}
-                <Box sx={{ display: "flex", ml: "auto", alignItems: "center" }}>
+                {/* <Box sx={{ display: "flex", ml: "auto", alignItems: "center" }}>
                   <Box sx={{ minWidth: 120 }}>
                     <FormControl fullWidth>
                       <InputLabel
@@ -227,7 +236,7 @@ const Navbar = () => {
                   >
                     Load Data
                   </Button>
-                </Box>
+                </Box> */}
               </>
             ) : (
               <>
@@ -272,6 +281,12 @@ const Navbar = () => {
                   <>
                     {location.pathname === "/comparisionanalysis" ? (
                       <>
+                        <Typography
+                          variant="h6"
+                          sx={{ fontWeight: "bolder", color: "black" }}
+                        >
+                          {title}
+                        </Typography>
                         <Box
                           sx={{
                             display: "flex",
@@ -305,6 +320,17 @@ const Navbar = () => {
                       <>
                         {location.pathname === "/maintenanceanalysis" ? (
                           <>
+                            <>
+                              <Typography
+                                variant="h6"
+                                sx={{
+                                  fontWeight: "bolder",
+                                  color: "black",
+                                }}
+                              >
+                                {title}
+                              </Typography>
+                            </>
                             <Box
                               sx={{
                                 display: "flex",
@@ -338,12 +364,83 @@ const Navbar = () => {
                           </>
                         ) : (
                           <>
-                            <Typography
-                              variant="h5"
-                              sx={{ fontWeight: "bold", color: "black" }}
-                            >
-                              {title}
-                            </Typography>
+                            {location.pathname === "/plantationAnalysis" ? (
+                              <>
+                                <Typography
+                                  variant="h6"
+                                  sx={{ fontWeight: "bolder", color: "black" }}
+                                >
+                                  {title}
+                                </Typography>
+                              </>
+                            ) : (
+                              <>
+                                {location.pathname ===
+                                "/highway-rating-details" ? (
+                                  <>
+                                    <Typography
+                                      variant="h6"
+                                      sx={{
+                                        fontWeight: "bolder",
+                                        color: "black",
+                                      }}
+                                    >
+                                      {title}
+                                    </Typography>
+                                  </>
+                                ) : (
+                                  <>
+                                    {location.pathname === "/highway-safety" ? (
+                                      <>
+                                        <Typography
+                                          variant="h6"
+                                          sx={{
+                                            fontWeight: "bolder",
+                                            color: "black",
+                                          }}
+                                        >
+                                          {title}
+                                        </Typography>
+                                      </>
+                                    ) : (
+                                      <>
+                                        {location.pathname ===
+                                        "/user-services" ? (
+                                          <>
+                                            <Typography
+                                              variant="h6"
+                                              sx={{
+                                                fontWeight: "bolder",
+                                                color: "black",
+                                              }}
+                                            >
+                                              {title}
+                                            </Typography>
+                                          </>
+                                        ) : (
+                                          <>
+                                            {location.pathname ===
+                                              "/highwayprogress" && (
+                                              <>
+                                                <Typography
+                                                  variant="h6"
+                                                  sx={{
+                                                    fontWeight: "bolder",
+                                                    color: "black",
+                                                  }}
+                                                >
+                                                  {title}
+                                                </Typography>
+                                              </>
+                                            )}
+                                          </>
+                                        )}
+                                      </>
+                                    )}
+                                  </>
+                                )}
+                              </>
+                            )}
                           </>
                         )}
                       </>
@@ -354,7 +451,7 @@ const Navbar = () => {
                 {/* </Paper> */}
               </>
             )}
-
+            {/* highwayprogress */}
             {/* <div className="searchWrapper">
               <input placeholder="Search Anything" className="searchBox" />
             </div>
@@ -441,6 +538,10 @@ const Navbar = () => {
               <Route path="user-services" element={<UserServices />} />
               <Route path="phonebookcontacts" element={<HighwayStrength />} />
               <Route path="highwayprogress" element={<HighwayProgress />} />
+              <Route
+                path="plantationAnalysis"
+                element={<PlantationAnalysis />}
+              />
               <Route
                 path="comparisionanalysis"
                 element={

@@ -11,6 +11,7 @@ export default class Scatter extends React.Component {
         props.graphdata.Heat_Map[3],
         props.graphdata.Heat_Map[4],
       ],
+
       // series: [
 
       // ],     //props.graphdata.Heat_Map,

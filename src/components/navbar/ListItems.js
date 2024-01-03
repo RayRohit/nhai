@@ -26,6 +26,7 @@ import {
 } from "../../Assests";
 import "./navbar.css";
 import { Link, NavLink } from "react-router-dom";
+import { Badge } from "@mui/material";
 
 export const MainListItems = ({ open }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -87,8 +88,12 @@ export const MainListItems = ({ open }) => {
                 <NavLink to="phonebookcontacts" className="collapseStyle">
                   Highway Strength
                 </NavLink>
-                <NavLink to="highway" className="collapseStyle">
+                {/* <NavLink to="highway" className="collapseStyle">
                   Highway
+                </NavLink> */}
+                <NavLink to="plantationAnalysis" className="collapseStyle">
+                  Plantation Analysis &nbsp;
+                  <sup style={{ color: "red", paddingRight: "3px" }}>New</sup>
                 </NavLink>
                 {open ? (
                   <div>
@@ -182,13 +187,7 @@ export const MainListItems = ({ open }) => {
                           Highway Strength
                         </MenuItem>
                       </Link>
-                      <Link to="highway" className="link_style text-black">
-                        <MenuItem
-                          onClick={(event) => handleMenuItemClick(event)}
-                        >
-                          Highway
-                        </MenuItem>
-                      </Link>
+                      {/* <L */}
                       {/* <Link to="highwayprogress" className="link_style text-black">
                 <MenuItem onClick={(event) => handleMenuItemClick(event)}>
                   Highway Progress
@@ -295,7 +294,6 @@ export const MainListItems = ({ open }) => {
             </Menu>
           </div>
         )}
-        
 
         {/* <NavLink to="mycardpage" className="text-white sidebarStyle">
                     <img className="sidebar-icons" src={MyCard} alt="MyCard" />

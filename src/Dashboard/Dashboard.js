@@ -1,8 +1,10 @@
-import { Grid, Paper, useMediaQuery } from "@mui/material";
-import React, { useContext } from "react";
+import { Button, Grid, Paper, Typography, useMediaQuery } from "@mui/material";
+import React, { useContext, useState } from "react";
 // import Boxes from "./Boxes";
 
 import { Box } from "@mui/system";
+import PropTypes from "prop-types";
+import LinearProgress from "@mui/material/LinearProgress";
 
 import LineGraph from "../TwoGraphs/LineGraph";
 import CompleteGraph from "../TwoGraphs/CompleteGraph";
@@ -15,14 +17,26 @@ import data from "./Drone_data.json";
 import nsvdata from "./nsv_data.json";
 import textjson from "./text_data.json";
 import { AppContext } from "../AppContext/AppContext";
+import { FileUploader } from "react-drag-drop-files";
+import upload from "../Assests/Images/uploadd.png";
+import ProgressBar from "./ProgressBar";
+
+const fileTypes = ["MP4"];
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const [file, setFile] = useState(null);
 
-  const { state } = useContext(AppContext);
-  console.log(state);
+  const { state, setState } = useContext(AppContext);
+  console.log("VideoData =>", state);
   console.log(textjson);
   console.log(data);
+
+  console.log("LocalStorage =>", localStorage.getItem("videoData1"));
+  console.log(
+    "LocalStorage =>",
+    JSON.parse(localStorage.getItem("videoData2"))
+  );
   //--------------------------------------------HE
   const totalObtainedPoints =
     textjson.Card_Value[0].Operating_Speed +
@@ -128,97 +142,184 @@ export default function Dashboard() {
     else if (category.name === "Encroachment_Hoardings")
       EncroachmentHoardings = category.data;
   }
+  const handleChange = (file) => {
+    console.log("fileData =>", file);
+    setFile(file[0]?.name);
+    setTimeout(() => {
+      setState((prev) => {
+        return {
+          ...prev,
+          HRVideo: file[0],
+        };
+      });
+    }, [7000]);
+  };
+  const handleReupload = () => {
+    setFile(null);
+    setState((prev) => {
+      return {
+        ...prev,
+        HRVideo: null,
+      };
+    });
+  };
   return (
     <>
-      <Grid container spacing={3} justifyContent="space-between">
-        <Grid item xs={2.5} md={1.5} lg={2} sx={{ mr: 6 }}>
+      {state.HRVideo === null ? (
+        <>
           <Box
-            onClick={() => {
-              navigate("/highway-rating-details");
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "80vh",
             }}
           >
-            <Cards image={efficiency} text={"Highway Efficiency"} />
+            <Paper
+              sx={{
+                background: "#273143",
+                p: 2,
+                borderRadius: "10px",
+                color: "#E4E6E9",
+                width: "75vw",
+                height: "60vh",
+                py: 5,
+              }}
+            >
+              <Box sx={{ display: "flex", justifyContent: "center", pt: 2 }}>
+                <img src={upload} alt="upload logo" width={100} />
+              </Box>
+              <Typography variant="h6" sx={{ textAlign: "center", py: 1 }}>
+                Select Video To Upload
+              </Typography>
+              <Box
+                sx={{
+                  color: "#E4E6E9",
+                  display: "flex",
+                  justifyContent: "center",
+                  py: 2,
+                }}
+              >
+                <FileUploader
+                  multiple={true}
+                  handleChange={handleChange}
+                  name="file"
+                  types={fileTypes}
+                />
+              </Box>
+              <p style={{ textAlign: "center" }}>
+                {console.log("file =>", file)}
+                {file === null ? "No Files Uploaded Yet" : `File name: ${file}`}
+              </p>{" "}
+              {file === null ? null : (
+                <LinearWithValueLabel sx={{ py: 0.8, borderRadius: "20px" }} />
+              )}
+            </Paper>
           </Box>
-        </Grid>
-        <Grid item xs={5} md={5} lg={5} sx={{ ml: 2 }}>
-          <LineGraph
-            text="High Efficiency"
-            NegativeCarriageWay={NegativeCarriageWay}
-            PositiveCarriageWay={PositiveCarriageWay}
-            NegativeServiceRoad={NegativeServiceRoad}
-            PositiveServiceRoad={PositiveServiceRoad}
-            NegativeRoadSign={NegativeRoadSign}
-            PositiveRoadSign={PositiveRoadSign}
-            NegativeRoadMarking={NegativeRoadMarking}
-            PositiveRoadMarking={PositiveRoadMarking}
-          />
-        </Grid>
-        <Grid item xs={4} md={4} lg={4}>
-          <CompleteGraph
-            totalObtained={totalObtainedPoints}
-            deductedPoints={deductedPoints}
-            nonAnalysedPoint={textjson.Non_Analysed_HE}
-          />
-        </Grid>
-        {/* -------------------------- */}
-        <Grid item xs={2.5} md={1.5} lg={2} sx={{ mr: 6 }}>
-          <Box
-            onClick={() => {
-              navigate("/highway-safety");
-            }}
-          >
-            <Cards image={safety} text={"Highway Safety"} />
+        </>
+      ) : (
+        <>
+          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+            <Button
+              variant="contained"
+              onClick={handleReupload}
+              sx={{ color: "#e4e6e9", mb: 2 }}
+            >
+              Reupload
+            </Button>
+            {/* <input /> */}
           </Box>
-        </Grid>
-        <Grid item xs={5} md={5} lg={5} sx={{ ml: 2 }}>
-          <LineGraph
-            text="Highway Safety"
-            PositiveEarthenShoulder={PositiveEarthenShoulder}
-            NegativeEarthenShoulder={NegativeEarthenShoulder}
-            PositiveFunctionalBlinkers={PositiveFunctionalBlinkers}
-            PositiveMedian={PositiveMedian}
-            NegativeMedian={NegativeMedian}
-            PositiveCrashBarrier={PositiveCrashBarrier}
-            NegativeCrashBarrier={NegativeCrashBarrier}
-            PositiveCrossMovementStructure={PositiveCrossMovementStructure}
-            NegativeCrossMovementStructure={NegativeCrossMovementStructure}
-            PositiveSolarBlinkers={PositiveFunctionalBlinkers}
-            NegativeSolarBlinkers={NegativeFunctionalBlinkers}
-          />
-        </Grid>
-        <Grid item xs={4} md={4} lg={4}>
-          <CompleteGraph
-            totalObtained={totalObtainedPointsHS}
-            deductedPoints={deductedHS}
-            nonAnalysedPoint={textjson.Non_Analysed_HS}
-          />
-        </Grid>
-        {/* --------------------------------- */}
-        <Grid item xs={2.5} md={2.5} lg={2} sx={{ mr: 6 }}>
-          <Box
-            onClick={() => {
-              navigate("/user-services");
-            }}
-          >
-            <Cards image={services} text={"User Services"} />
-          </Box>
-        </Grid>
-        <Grid item xs={5} md={5} lg={5} sx={{ ml: 2 }}>
-          <LineGraph
-            text="User Services"
-            SpeedBreakers={SpeedBreakers}
-            TrafficBarriers={TrafficBarriers}
-            EncroachmentHoardings={EncroachmentHoardings}
-          />
-        </Grid>
-        <Grid item xs={4} md={4} lg={4}>
-          <CompleteGraph
-            totalObtained={totalObtainedPointsUS}
-            deductedPoints={deductedUS}
-            nonAnalysedPoint={textjson.Non_Analysed_US}
-          />
-        </Grid>
-      </Grid>
+          <Grid container spacing={3} justifyContent="space-between">
+            <Grid item xs={2.5} md={1.5} lg={2} sx={{ mr: 6 }}>
+              <Box
+                onClick={() => {
+                  navigate("/highway-rating-details");
+                }}
+              >
+                <Cards image={efficiency} text={"Highway Efficiency"} />
+              </Box>
+            </Grid>
+            <Grid item xs={5} md={5} lg={5} sx={{ ml: 2 }}>
+              <LineGraph
+                text="High Efficiency"
+                NegativeCarriageWay={NegativeCarriageWay}
+                PositiveCarriageWay={PositiveCarriageWay}
+                NegativeServiceRoad={NegativeServiceRoad}
+                PositiveServiceRoad={PositiveServiceRoad}
+                NegativeRoadSign={NegativeRoadSign}
+                PositiveRoadSign={PositiveRoadSign}
+                NegativeRoadMarking={NegativeRoadMarking}
+                PositiveRoadMarking={PositiveRoadMarking}
+              />
+            </Grid>
+            <Grid item xs={4} md={4} lg={4}>
+              <CompleteGraph
+                totalObtained={totalObtainedPoints}
+                deductedPoints={deductedPoints}
+                nonAnalysedPoint={textjson.Non_Analysed_HE}
+              />
+            </Grid>
+            {/* -------------------------- */}
+            <Grid item xs={2.5} md={1.5} lg={2} sx={{ mr: 6 }}>
+              <Box
+                onClick={() => {
+                  navigate("/highway-safety");
+                }}
+              >
+                <Cards image={safety} text={"Highway Safety"} />
+              </Box>
+            </Grid>
+            <Grid item xs={5} md={5} lg={5} sx={{ ml: 2 }}>
+              <LineGraph
+                text="Highway Safety"
+                PositiveEarthenShoulder={PositiveEarthenShoulder}
+                NegativeEarthenShoulder={NegativeEarthenShoulder}
+                PositiveFunctionalBlinkers={PositiveFunctionalBlinkers}
+                PositiveMedian={PositiveMedian}
+                NegativeMedian={NegativeMedian}
+                PositiveCrashBarrier={PositiveCrashBarrier}
+                NegativeCrashBarrier={NegativeCrashBarrier}
+                PositiveCrossMovementStructure={PositiveCrossMovementStructure}
+                NegativeCrossMovementStructure={NegativeCrossMovementStructure}
+                PositiveSolarBlinkers={PositiveFunctionalBlinkers}
+                NegativeSolarBlinkers={NegativeFunctionalBlinkers}
+              />
+            </Grid>
+            <Grid item xs={4} md={4} lg={4}>
+              <CompleteGraph
+                totalObtained={totalObtainedPointsHS}
+                deductedPoints={deductedHS}
+                nonAnalysedPoint={textjson.Non_Analysed_HS}
+              />
+            </Grid>
+            {/* --------------------------------- */}
+            <Grid item xs={2.5} md={2.5} lg={2} sx={{ mr: 6 }}>
+              <Box
+                onClick={() => {
+                  navigate("/user-services");
+                }}
+              >
+                <Cards image={services} text={"User Services"} />
+              </Box>
+            </Grid>
+            <Grid item xs={5} md={5} lg={5} sx={{ ml: 2 }}>
+              <LineGraph
+                text="User Services"
+                SpeedBreakers={SpeedBreakers}
+                TrafficBarriers={TrafficBarriers}
+                EncroachmentHoardings={EncroachmentHoardings}
+              />
+            </Grid>
+            <Grid item xs={4} md={4} lg={4}>
+              <CompleteGraph
+                totalObtained={totalObtainedPointsUS}
+                deductedPoints={deductedUS}
+                nonAnalysedPoint={textjson.Non_Analysed_US}
+              />
+            </Grid>
+          </Grid>
+        </>
+      )}
     </>
   );
 }
@@ -250,4 +351,48 @@ export default function Dashboard() {
 {/* <Grid item lg={5} md={5} xl={5}>
   <LineCharts />
 </Grid> */
+}
+
+function LinearProgressWithLabel(props) {
+  return (
+    <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box sx={{ width: "100%", mr: 1 }}>
+        <LinearProgress variant="determinate" {...props} />
+      </Box>
+      <Box sx={{ minWidth: 35 }}>
+        <Typography variant="body2" color="text.secondary">{`${Math.round(
+          props.value
+        )}%`}</Typography>
+      </Box>
+    </Box>
+  );
+}
+
+LinearProgressWithLabel.propTypes = {
+  /**
+   * The value of the progress indicator for the determinate and buffer variants.
+   * Value between 0 and 100.
+   */
+  value: PropTypes.number.isRequired,
+};
+
+function LinearWithValueLabel() {
+  const [progress, setProgress] = React.useState(10);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((prevProgress) =>
+        prevProgress >= 100 ? 10 : prevProgress + 10
+      );
+    }, 800);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  return (
+    <Box sx={{ width: "100%" }}>
+      <LinearProgressWithLabel value={progress} />
+    </Box>
+  );
 }

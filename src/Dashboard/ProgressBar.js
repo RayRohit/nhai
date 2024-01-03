@@ -18,9 +18,9 @@ function LinearProgressWithLabel(props) {
         />
       </Box>
       <Box sx={{ minWidth: 35 }}>
-        <Typography variant="body2" sx={{ color: "#e4e6e9" }}>Uploading&nbsp;&nbsp;{`${Math.round(
-          props.value
-        )}%`}</Typography>
+        <Typography variant="body2" sx={{ color: "#e4e6e9" }}>
+          Uploading&nbsp;&nbsp;{`${Math.round(props.value)}%`}
+        </Typography>
       </Box>
     </Box>
   );
@@ -43,15 +43,13 @@ export default function ProgressBar() {
     // if (state.comparisonVideo !== undefined) {
     let Interval = setInterval(() => {
       setProgress((prevProgress) => prevProgress + 10);
-    }, 2000);
+    }, 800);
     setNewInterval(Interval);
     // }
   }, []);
 
   React.useEffect(() => {
-    if (progress === 100) {
-      clearInterval(Interval);
-    }
+    if (progress === 100) clearInterval(Interval);
   }, [progress]);
 
   return (

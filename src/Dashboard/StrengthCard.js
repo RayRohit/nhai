@@ -11,7 +11,7 @@ export default function StrengthCard(props) {
             background: "#273143",
             color: "#E4E6E9",
             width: "240px",
-            height: "208px",
+            height: "215px",
             borderRadius: "10px",
           }}
         >

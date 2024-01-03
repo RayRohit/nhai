@@ -5,7 +5,6 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { AppContext } from "../AppContext/AppContext";
 import LinearProgres from "./LinearProgress";
-import AnalyseProgress from "./AnalyseProgress";
 
 function LinearProgressWithLabel(props) {
   return (
@@ -42,7 +41,7 @@ export default function MainProgressBar() {
   React.useEffect(() => {
     // if (state.maintananceVideo !== undefined) {
     let Interval = setInterval(() => {
-      setProgress((prevProgress) => prevProgress + 2);
+      setProgress((prevProgress) => prevProgress + 10);
     }, 2000);
     setNewInterval(Interval);
     // }
